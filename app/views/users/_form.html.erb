@@ -1,0 +1,5 @@
+<%= form_with(model: @user, url: users_index_path, method: 'post') do |f| %>
+  <%= f.label :name, "Username"  %>
+  <%= f.text_field :name %>
+  <%= f.submit "Submit" %>
+<% end %>
