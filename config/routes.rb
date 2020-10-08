@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
   root 'users#new'
-  get 'authentication/new'
-  get 'authentication/create'
-  get 'authentication/destroy'
-  get 'users/index'
-  get 'users/create'
-  get 'users/new'
-  get 'users/destroy'
-  get 'users/update'
-  get 'users/index'
-  get 'users/create'
-  get 'users/new'
-  get 'users/destroy'
+  resources :users
+  
+  get 'admin', :to => 'access#menu'
+  get 'access/menu'
+  get 'access/login'
+  post 'access/login', to: 'access#create', as: "access"
+  get 'access/logout'
+  
+ 
+
+  
+  
+  
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

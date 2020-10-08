@@ -1,0 +1,12 @@
+<h1>Log Into Platform</h1>
+
+
+<div>
+
+<%= form_for(access_path, :method => :post) do %>
+<%= label_tag(:username)%>
+<%= text_field_tag(:username, params[:username])%>
+
+<%= submit_tag('Log In')%>
+<% end %>
+</div>
