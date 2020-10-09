@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post 'access/login', to: 'access#create', as: "access"
   get 'access/logout'
   
+  resources :feelings, only:[:new, :create, :show]
+  
  
 
   
