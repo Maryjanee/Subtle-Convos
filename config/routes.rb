@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   root 'users#new'
   resources :users
   
-  get 'admin', :to => 'access#menu'
-  get 'access/menu'
+  get 'admin', :to => 'access#dashboard'
+  get 'access/dashboard'
   get 'access/login'
   post 'access/login', to: 'access#create', as: "access"
   get 'access/logout'

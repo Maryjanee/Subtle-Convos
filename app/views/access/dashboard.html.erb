@@ -1,0 +1,7 @@
+<% if !flash[:notice].blank?%>
+  <div class="notice">
+  <%=flash[:notice]%>
+  </div>
+  <% end %>
+<p>logged in as a new user </p>
+<%= link_to 'logout', access_logout_path%>

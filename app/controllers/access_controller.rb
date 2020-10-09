@@ -1,7 +1,7 @@
 class AccessController < ApplicationController
   
   before_action :confirm_logged_in, :except => [:login, :create]
-  def menu
+  def dashboard
     #display texts and links
   end
 
@@ -18,7 +18,7 @@ class AccessController < ApplicationController
       flash[:notice] = 'You are in'
       redirect_to admin_path
     else
-      flash.now[:notice] = 'Username not found, please try again'
+      flash[:notice] = 'Username not found, please try again'
       redirect_to access_path
     end
   end

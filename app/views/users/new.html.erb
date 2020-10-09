@@ -1,4 +1,10 @@
-<h1>Sign In</h1>
+<% if !flash[:notice].blank?%>
+  <div class="notice">
+  <%=flash[:notice]%>>
+  </div>
+  <% end %>
+
+<h1>Sign Up </h1>
 
 <%= render 'form' %>
 
