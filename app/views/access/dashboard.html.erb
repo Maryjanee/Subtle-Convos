@@ -3,5 +3,23 @@
   <%=flash[:notice]%>
   </div>
   <% end %>
+  
+  <ul class="users-list">
+    <% @users.each do |user| %>
+      <li>
+        Name: <%= user.name %></br>
+        Id: <%= user.id%>
+      </li>
+    <% end %>
+  </ul>
+  
+  <ul class="feelings-list">
+    <% @feelings.each do |feeling| %>
+      <li>
+        feeling id: <%= feeling.id %></br>
+       
+      </li>
+    <% end %>
+  </ul>
 <p>logged in as a new user </p>
 <%= link_to 'logout', access_logout_path%>
