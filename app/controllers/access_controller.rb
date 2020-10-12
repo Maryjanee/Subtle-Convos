@@ -3,6 +3,9 @@ class AccessController < ApplicationController
   before_action :confirm_logged_in, :except => [:login, :create]
   def dashboard
     #display texts and links
+    
+    @all_users = User.all;
+    @who_to_follow = User.all;
   end
 
   def login

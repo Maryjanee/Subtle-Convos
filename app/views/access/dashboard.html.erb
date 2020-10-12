@@ -4,22 +4,36 @@
   </div>
   <% end %>
   
+  <section class = "left-pane">
+    <div class = user-info>
+      <img src = "" alt = "user-info" >
+      <p><%= current_user.name %></p>
+      <p><%= current_user.followings.count%> Following </p>
+
+    </div>
+  
+   </section>
+  
+
+<section class="users-section">
+<h1>Who to follow</h1>
+<img />
   <ul class="users-list">
-    <% @users.each do |user| %>
+    <% @all_users.each do |user| %>
       <li>
         Name: <%= user.name %></br>
         Id: <%= user.id%>
+        
       </li>
     <% end %>
   </ul>
+</section>
+
+
   
-  <ul class="feelings-list">
-    <% @feelings.each do |feeling| %>
-      <li>
-        feeling id: <%= feeling.id %></br>
-       
-      </li>
-    <% end %>
-  </ul>
-<p>logged in as a new user </p>
+  
+  
+  
+ 
+<p>logged in as a <%= current_user.name %> </p>
 <%= link_to 'logout', access_logout_path%>
