@@ -9,13 +9,35 @@
       <img src = "" alt = "user-info" >
       <p><%= current_user.name %></p>
       <p><%= current_user.followings.count%> Following </p>
+      
+      
 
     </div>
   
    </section>
+   
+   <section class="middle-pane">
+    <div>
+        <h3>Tell the house how you feel today :)</h3>
+        <%= render 'form' %>
+    </div>
+    
+  
+    
+    <div>
+      <% @all_feelings.each do |feeling| %>
+      <img/>
+      <h4> <%= feeling.user.name %></h4>
+      <p>  <%= feeling.user.id %></p>
+      <p>  <%= feeling.body %></p>
+      <%end%>
+    
+    </div>
+    
+   </section>
   
 
-<section class="users-section">
+<section class="third pane">
 <h1>Who to follow</h1>
 <img />
   <ul class="users-list">
@@ -23,11 +45,12 @@
       <li>
         Name: <%= user.name %></br>
         Id: <%= user.id%>
-        
       </li>
     <% end %>
   </ul>
 </section>
+
+
 
 
   

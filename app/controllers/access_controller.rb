@@ -1,17 +1,18 @@
 class AccessController < ApplicationController
   
   before_action :confirm_logged_in, :except => [:login, :create]
-  def dashboard
-    #display texts and links
-    
+  def dashboard 
     @all_users = User.all;
-    @who_to_follow = User.all;
+    @all_feelings = Feeling.all.order(created_at: :desc);   
+    
+    @feeling = Feeling.new
   end
 
   def login
     #display login form
   end
   
+
   def create
     if params[:username].present?
       user = User.where(:name => params[:username]).first
