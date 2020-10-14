@@ -4,17 +4,20 @@
   </div>
   <% end %>
   
-  <section class = "left-pane">
+ <div class= "top-banner">
+ <h1>Subtle Convos</h1>
+ </div>
+  
+  <section>
     <div class = user-info>
       <img src = "" alt = "user-info" >
       <p><%= current_user.name %></p>
-      <p><%= current_user.followings.count%> Following </p>
+      <p>following </p>
       
-      
-
     </div>
   
    </section>
+   
    
    <section class="middle-pane">
     <div>
@@ -23,7 +26,6 @@
     </div>
     
   
-    
     <div>
       <% @all_feelings.each do |feeling| %>
       <img/>
@@ -45,6 +47,7 @@
       <li>
         Name: <%= user.name %></br>
         Id: <%= user.id%>
+        <% %>
       </li>
     <% end %>
   </ul>

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   
-  before_action :confirm_logged_in
+  before_action :confirm_logged_in , :except => [:new]
+  
   def index
     @users = User.all
   end

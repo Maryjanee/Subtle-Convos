@@ -12,15 +12,15 @@ class User < ApplicationRecord
     
     
     
-    def follow(other_user) 
-      following << other_user
+    def follow(user) 
+      following << user
     end
       # Unfollows a user.
-    def unfollow(other_user)
+    def unfollow(user)
       following.delete(other_user)
     end
     # Returns true if the current user is following the other user.
-    def following?(other_user) 
+    def following?(user) 
       following.include?(other_user)
     end
 end

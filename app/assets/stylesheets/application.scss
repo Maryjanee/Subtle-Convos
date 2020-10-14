@@ -1,0 +1,98 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ 
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap');
+ 
+ $blue: #52a7e8;
+ $dark_blue : #213346;
+ $background_grey : #F5F6F8;
+ $padding-sm : 1rem;
+ $white :#fff;
+ 
+
+* {
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ body {
+   background:$background_grey;
+   font-family: 'Montserrat', sans-serif;
+   
+ }
+ 
+ .left-pane {
+   background: $dark_blue;
+   height: 100vh;
+   width:20%;
+   position:absolute;
+   top:0;
+   left:0;
+   bottom:0;
+   padding: $padding-sm;
+ }
+ 
+ .top-banner{
+   background: $blue;
+   width:80%;
+   height:6rem;
+   position:absolute;
+   left: 18rem;
+   top:0;
+   padding: $padding-sm;
+ }
+ 
+ .form-container{
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    
+ }
+ 
+ .form-content {
+   display: flex;
+   flex-direction : column;
+   
+   
+    #user_name {
+      width:30rem;
+      border-radius: .2rem;
+      padding: .8rem 1.5rem;
+      border:2px solid $blue;
+      margin: .3rem 0;
+      font-size: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      
+    }
+    
+    input[type=submit]{
+       padding: 1rem 1.5rem;
+       color: $white; 
+       background: $blue;
+       border: 0;
+       border-radius: .2rem;
+       font-size: 1rem;
+       
+    }
+ }
+ 
+ 
+ 
+ 
+
