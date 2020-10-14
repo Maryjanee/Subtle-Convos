@@ -21,8 +21,9 @@ class AccessController < ApplicationController
       session[:user_id] = user.id
       flash[:notice] = 'You are in'
       redirect_to admin_path
+      
     else
-      flash[:notice] = 'Username not found, please try again'
+      flash[:alert] = 'Username not found, please try again'
       redirect_to access_path
     end
   end

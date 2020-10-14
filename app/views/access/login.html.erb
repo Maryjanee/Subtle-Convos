@@ -1,19 +1,26 @@
-<% if !flash[:notice].blank?%>
-  <div class="notice">
-  <%= flash[:notice]%>
+<div class ="flash">
+  <% if !flash[:notice].blank?%>
+    <div class="notice">
+    <%= flash[:notice]%>
+    </div>
+    <% end %>
+</div>
+  
+  
+  <div class="left-pane"></div>
+  <div class="top-banner">
+    <h1>Subtle Convos</h1>
   </div>
-  <% end %>
-  <% flash.clear %>
-  
-  
-<h1>Log Into Platform</h1>
 
-<div>
 
-<%= form_for(access_path, :method => :post) do %>
+<div class="form-container">
+
+<%= form_for(access_path, :method => :post, html: {class: "form-content"}) do %>
 <%= label_tag(:username)%>
-<%= text_field_tag(:username, params[:username])%>
 
-<%= submit_tag('Log In')%>
+<%= text_field_tag(:username, params[:username], :class => "user_name")%>
+<%= submit_tag('Log In', :class => "submit_btn")%>
 <% end %>
+
+  <p>Don't have an account yet? <%= link_to "Sign Up", new_user_path, :class => "links" %></p>
 </div>

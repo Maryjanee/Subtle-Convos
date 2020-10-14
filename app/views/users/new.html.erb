@@ -1,8 +1,5 @@
-<% if !flash[:notice].blank?%>
-  <div class="notice">
-  <%=flash[:notice]%>>
-  </div>
-  <% end %>
+<%= content_tag(:p, notice, class: 'notice') if notice %>
+<%= content_tag(:p, alert,  class: 'alert' ) if alert  %>
 
 <h1>Sign Up </h1>
 
@@ -12,6 +9,9 @@
 </div>
 
 <div class="form-container">
+<p>Have Unlimited Subtle Conversations with a close set of people.</p>
   <%= render 'form' %>
+  
+  <p>Already have an account? <%= link_to "Log in", access_login_path,  :class => "links" %></p>
 </div>
 

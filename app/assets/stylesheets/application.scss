@@ -34,6 +34,9 @@
    font-family: 'Montserrat', sans-serif;
    
  }
+ .links{
+   color:$blue;
+ }
  
  .left-pane {
    background: $dark_blue;
@@ -56,6 +59,21 @@
    padding: $padding-sm;
  }
  
+ .notice, .alert{
+   background:green;
+   width:30%;
+   border-radius: .2rem;
+   color:$white;
+   padding:1rem 2rem;
+   position: absolute;
+   right:0;
+   top:6rem;
+  
+ }
+ .alert{
+    background:red;
+ }
+ 
  .form-container{
     position: absolute;
     left: 50%;
@@ -68,9 +86,10 @@
  .form-content {
    display: flex;
    flex-direction : column;
-   
-   
-    #user_name {
+   margin: 1rem 0;
+ }
+ 
+  .user_name {
       width:30rem;
       border-radius: .2rem;
       padding: .8rem 1.5rem;
@@ -79,10 +98,11 @@
       font-size: 1rem;
       font-family: 'Montserrat', sans-serif;
       
-    }
+    } 
     
-    input[type=submit]{
+  .submit_btn {
        padding: 1rem 1.5rem;
+       width:30rem;
        color: $white; 
        background: $blue;
        border: 0;
@@ -90,7 +110,8 @@
        font-size: 1rem;
        
     }
- }
+    
+    
  
  
  
