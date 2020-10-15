@@ -8,12 +8,26 @@
  <h1>Subtle Convos</h1>
  </div>
   
-  <section>
+  <section class="left-pane">
     <div class = user-info>
-      <img src = "" alt = "user-info" >
-      <p><%= current_user.name %></p>
-      <p>following </p>
+        <% if current_user.avatar.attached? %>
+          <%= image_tag current_user.avatar, style:"width: 50px; display: block" %>
+        <% end %>
+      <p><%= current_user.full_name.upcase() %></p>
       
+      <div class="relationship-count">
+      <p><%= current_user.followers.count %> Followers </p>
+      <p><%= current_user.following.count %> Following </p>
+      
+      </div>
+    </div>
+    <div class="nav-links">
+    <ul>
+  <li><%= link_to "Home", access_dashboard_path %></li>
+  <li><%= link_to "Profile" %></li>
+  <li><%= link_to "Logout", access_logout_path %></li>
+    </ul>
+    
     </div>
   
    </section>
@@ -52,14 +66,3 @@
     <% end %>
   </ul>
 </section>
-
-
-
-
-  
-  
-  
-  
- 
-<p>logged in as a <%= current_user.name %> </p>
-<%= link_to 'logout', access_logout_path%>

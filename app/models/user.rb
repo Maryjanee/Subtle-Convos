@@ -9,6 +9,9 @@ class User < ApplicationRecord
                                     
     has_many :followers, through: :reverse_relationships, source: :follower
     
+    has_one_attached :avatar
+    has_one_attached :cover_image
+    
     
     
     

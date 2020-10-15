@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_action :confirm_logged_in , :except => [:new]
+  before_action :confirm_logged_in , :except => [:new, :create]
   
   def index
     @users = User.all
@@ -13,11 +13,18 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    
+    
     if @user.save
+      @user.avatar.attach(params[:users][:avatar])
+      @user.avatar.attach(params[:users][:cover_image])
      redirect_to admin_path
     else
       flash.now[:alert] = 'User creation unsuccessful.'
     end
+  end
+  
+  def show
   end
 
 
@@ -31,7 +38,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :full_name, :avatar, :cover_image)
   end
   
   
