@@ -28,6 +28,10 @@ class AccessController < ApplicationController
     end
   end
   
+  def show
+  end
+  
+  
   def logout
     session[:user_id] = nil
     flash[:notice] = 'Logged out'

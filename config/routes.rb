@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   
   get 'admin', :to => 'access#dashboard'
-  get '/users/:id', :to => 'access#show'
+  get '/users/:id', :to => 'access#show', as: 'user'
   get 'access/dashboard'
   get 'access/login'
   post 'access/login', to: 'access#create', as: "access"
