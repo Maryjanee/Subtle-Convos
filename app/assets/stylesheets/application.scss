@@ -21,6 +21,8 @@
  $background_grey : #F5F6F8;
  $padding-sm : 1rem;
  $white :#fff;
+ $line-grey: #b3b3b3;
+ $title-grey :#999999;
  
 
 * {
@@ -29,11 +31,21 @@
   box-sizing: border-box;
 }
 
+li{
+  list-style: none;
+}
+
  body {
    background:$background_grey;
    font-family: 'Montserrat', sans-serif;
    
  }
+ 
+ .text-uppercase {
+   text-transform: uppercase;
+   font-size:.9rem;
+ }
+ 
  .links{
    color:$blue;
  }
@@ -89,6 +101,14 @@
    margin: 1rem 0;
  }
  
+ .form-field{
+   width:100%;
+   padding:1rem 1.5rem;
+   border:1px solid $line-grey;
+   border-radius:.5rem;
+   margin:.5rem 0;
+ }
+ 
   .user_name {
       width:30rem;
       border-radius: .2rem;
@@ -109,6 +129,41 @@
        border-radius: .2rem;
        font-size: 1rem;
        
+    }
+    
+    .page-content{
+      position:absolute;
+      top: 5rem;
+      left: 18.3rem;
+      height:80%;
+      width: 79.5%;
+      display: flex;
+      
+    }
+    
+    .content-title{
+      text-transform: uppercase;
+      color: $title-grey;
+      padding:1.5rem;
+      font-size:.9rem;
+      border-bottom : 1px solid $line-grey;
+    }
+    
+    .middle-pane{
+      width:65%;
+    }
+    
+    .form-wrapper{
+        background: $white;
+        margin: 1rem;
+        padding:1rem 1.5rem;
+        border-radius:.5rem;
+      }
+    
+    .third-pane {
+      border-left:1px solid $line-grey;
+     
+      width:35%;
     }
     
     

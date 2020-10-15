@@ -23,46 +23,47 @@
     </div>
     <div class="nav-links">
     <ul>
-  <li><%= link_to "Home", access_dashboard_path %></li>
-  <li><%= link_to "Profile" %></li>
-  <li><%= link_to "Logout", access_logout_path %></li>
+  <li> <%= image_tag("home.svg", style:"width: 20px;") %> <%= link_to "Home", access_dashboard_path %>
+  </li>
+  <li><%= image_tag("user-profile.svg", style:"width: 20px;") %> <%= link_to "Profile" %></li>
+  <li><%= image_tag("logout.svg", style:"width: 20px;") %><%= link_to "Logout", access_logout_path %></li>
     </ul>
     
     </div>
   
    </section>
    
-   
-   <section class="middle-pane">
-    <div>
-        <h3>Tell the house how you feel today :)</h3>
+   <section class="page-content">
+   <div class="middle-pane">
+    <h3 class= "content-title ">All conversations</h3>
+    <div class="form-wrapper">
+        <h3 class="text-uppercase">Say Something</h3>
         <%= render 'form' %>
     </div>
     
   
-    <div>
+    <div class="form-wrapper">
       <% @all_feelings.each do |feeling| %>
       <img/>
       <h4> <%= feeling.user.name %></h4>
-      <p>  <%= feeling.user.id %></p>
       <p>  <%= feeling.body %></p>
       <%end%>
     
     </div>
     
-   </section>
+   </div>
   
 
-<section class="third pane">
-<h1>Who to follow</h1>
-<img />
-  <ul class="users-list">
+<div class="third-pane">
+<h3 class= "content-title">Who to follow</h3>
+
+  <div class="users-list">
     <% @all_users.each do |user| %>
-      <li>
-        Name: <%= user.name %></br>
-        Id: <%= user.id%>
-        <% %>
-      </li>
+      <p>
+        <%= user.name %>
+      </p>
+      <p>Follows <%= user.followers.first %></p>
     <% end %>
-  </ul>
+  </div>
+</div>
 </section>
