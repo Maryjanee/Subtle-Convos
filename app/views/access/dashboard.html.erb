@@ -59,11 +59,22 @@
 
   <div class="users-list">
     <% @all_users.each do |user| %>
+      <% if who_not_to_follow.exclude?(user.id) %>
+      <%if user.avatar.nil? %>
+       <%= image_tag("home.svg", style:"width: 20px; " ) %> 
+       <% else %>
+       <%= image_tag user.avatar, style:"width: 50px; display: block" %>
+       <% end %>
+        <h3 class="profile-link">
+          <%= link_to user.name, user_path(user.id), class: 'profile-link' %>
+        </h3>
+        <p>Followed by (Coming soon)</p>
+        <% end %>
       <p>
-        <%= user.name %>
       </p>
-      <p>Follows <%= user.followers.first %></p>
     <% end %>
   </div>
 </div>
+
 </section>
+

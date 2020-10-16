@@ -10,19 +10,6 @@ class User < ApplicationRecord
   has_many :followers, through: :reverse_relationships, source: :follower
 
   has_one_attached :avatar
-  has_one_attached :cover_image
+  # has_one_attached :cover_image
 
-  def follow(user)
-    following << user
-  end
-
-  # Unfollows a user.
-  def unfollow(_user)
-    following.delete(other_user)
-  end
-
-  # Returns true if the current user is following the other user.
-  def following?(_user)
-    following.include?(other_user)
-  end
 end
