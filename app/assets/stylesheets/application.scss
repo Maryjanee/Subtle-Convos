@@ -35,10 +35,57 @@ li{
   list-style: none;
 }
 
+a, .current-user{
+  text-decoration: none;
+  display: block;
+  color:$white;
+  margin-left:1rem;
+}
+
+
  body {
    background:$background_grey;
    font-family: 'Montserrat', sans-serif;
    
+ }
+ 
+ .d-flex{
+   display:flex;
+ }
+ 
+ .user-info{
+   align-items:center;
+   height:100px;
+ }
+ 
+ .active{
+   background: #57A8E5;
+}
+
+.pl-1{
+  padding-left:1.5rem;
+}
+
+.relationship-count{
+  width: 100%;
+  margin-top:2rem;
+  p {
+    border:1px solid $line-grey;
+    padding:1rem 2rem;
+    color:$white;
+    display:flex;
+    flex-direction: column;
+    text-align:center;
+  }
+}
+
+ 
+ .nav-link{
+   display:flex;
+   width:100%;
+ 
+   padding: $padding-sm;
+   margin-bottom:.3rem;
  }
  
  .text-uppercase {
@@ -49,7 +96,7 @@ li{
  .links{
    color:$blue;
  }
- 
+
  .left-pane {
    background: $dark_blue;
    height: 100vh;
@@ -58,7 +105,7 @@ li{
    top:0;
    left:0;
    bottom:0;
-   padding: $padding-sm;
+  
  }
  
  .top-banner{
@@ -162,8 +209,11 @@ li{
     
     .third-pane {
       border-left:1px solid $line-grey;
-     
       width:35%;
+    }
+    
+    .nav{
+      margin-top:6rem;
     }
     
     

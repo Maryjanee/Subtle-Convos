@@ -4,31 +4,31 @@
   </div>
   <% end %>
   
- <div class= "top-banner">
- <h1>Subtle Convos</h1>
+ <div class="top-banner">
+      <h1>Subtle Convos</h1>
  </div>
   
   <section class="left-pane">
-    <div class = user-info>
+    <div class = "user-info d-flex pl-1 py-1">
+    
         <% if current_user.avatar.attached? %>
           <%= image_tag current_user.avatar, style:"width: 50px; display: block" %>
         <% end %>
-      <p><%= current_user.full_name.upcase() %></p>
-      
-      <div class="relationship-count">
-      <p><%= current_user.followers.count %> Followers </p>
-      <p><%= current_user.following.count %> Following </p>
-      
-      </div>
+      <p class="current-user"><%= current_user.full_name.upcase() %></p>
     </div>
-    <div class="nav-links">
-    <ul>
-  <li> <%= image_tag("home.svg", style:"width: 20px;") %> <%= link_to "Home", access_dashboard_path %>
-  </li>
-  <li><%= image_tag("user-profile.svg", style:"width: 20px;") %> <%= link_to "Profile", user_path(current_user) %></li>
-  <li><%= image_tag("logout.svg", style:"width: 20px;") %><%= link_to "Logout", access_logout_path %></li>
-    </ul>
-    
+      <div class="relationship-count d-flex">
+      <p><%= current_user.followers.count %>  Followers </p>
+      <p><%= current_user.following.count %> Following </p>
+    </div>
+    <div class="nav">
+         <div class="nav-link active">
+            <%= image_tag("home.svg", style:"width: 20px; " ) %> 
+            <%= link_to "Home", access_dashboard_path %>
+        </div>
+        <div class="nav-link"><%= image_tag("user-profile.svg", style:"width: 20px;") %> <%= link_to "Profile", user_path(current_user) %></div>
+       <div class="nav-link"> <%= image_tag("logout.svg", style:"width: 20px;") %><%= link_to "Logout", access_logout_path %></div>
+        
+          
     </div>
   
    </section>

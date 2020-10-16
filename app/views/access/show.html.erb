@@ -1,4 +1,28 @@
 
-<div class="left-pane"></div>
-<div class= "top-banner">
-<%= render 'form' %>
+
+
+<section class="left-pane">
+    <div class = "user-info d-flex pl-1 py-1">
+    
+        <% if current_user.avatar.attached? %>
+          <%= image_tag current_user.avatar, style:"width: 50px; display: block" %>
+        <% end %>
+      <p class="current-user"><%= current_user.full_name.upcase() %></p>
+    </div>
+      <div class="relationship-count d-flex">
+      <p><%= current_user.followers.count %>  Followers </p>
+      <p><%= current_user.following.count %> Following </p>
+    </div>
+    <div class="nav">
+         <div class="nav-link active">
+            <%= image_tag("home.svg", style:"width: 20px; " ) %> 
+            <%= link_to "Home", access_dashboard_path %>
+        </div>
+        <div class="nav-link"><%= image_tag("user-profile.svg", style:"width: 20px;") %> <%= link_to "Profile", user_path(current_user) %></div>
+       <div class="nav-link"> <%= image_tag("logout.svg", style:"width: 20px;") %><%= link_to "Logout", access_logout_path %></div>
+        
+          
+    </div>
+  
+   </section>
+   <div class= "top-banner">
