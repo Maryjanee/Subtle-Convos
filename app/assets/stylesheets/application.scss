@@ -48,13 +48,10 @@ a, .current-user{
    background: #57A8E5;
 }
 
-.pl-1{
-  padding-left:1.5rem;
-}
 
 .relationship-count{
   width: 100%;
-  margin-top:2rem;
+  margin-top:1rem;
   p {
     border:1px solid $line-grey;
     padding:1rem 2rem;
@@ -69,7 +66,6 @@ a, .current-user{
  .nav-link{
    display:flex;
    width:100%;
- 
    padding: $padding-sm;
    margin-bottom:.3rem;
  }
@@ -196,10 +192,22 @@ a, .current-user{
     .third-pane {
       border-left:1px solid $line-grey;
       width:35%;
+      height:100%;
     }
     
     .nav{
-      margin-top:6rem;
+      margin-top:1rem;
+    }
+    
+    .user-name {
+      color:#00264d;
+      font-size: .9rem;
+      font-weight:700;
+    }
+    .user-image{
+     width: 50px;
+     height: 50px; 
+     border-radius: 50%;
     }
     
     

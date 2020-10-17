@@ -12,7 +12,9 @@
     <div class = "user-info d-flex pl-1 py-1">
     
         <% if current_user.avatar.attached? %>
-          <%= image_tag current_user.avatar, style:"width: 50px; display: block" %>
+          <%= image_tag current_user.avatar, class: 'user-image' %>
+          <% else %>
+           <%= image_tag("user-profile.svg", style:"width: 20px;") %>
         <% end %>
       <p class="current-user"><%= current_user.full_name.upcase() %></p>
     </div>
@@ -44,9 +46,14 @@
   
     <div class="form-wrapper">
       <% @all_feelings.each do |feeling| %>
-      <img/>
-      <h4> <%= feeling.user.name %></h4>
-      <p>  <%= feeling.body %></p>
+      <div class="user-posts d-flex my-4">
+          <%= image_tag feeling.user.avatar, class: 'user-image' %>
+        <div class="ml-3">
+            <h3><%=link_to feeling.user.full_name,  user_path(feeling.user.id), class: 'user-name' %></h3>
+    
+            <p><%= feeling.body %></p>
+        </div>
+      </div>
       <%end%>
     
     </div>
@@ -54,24 +61,26 @@
    </div>
   
 
-<div class="third-pane">
+<div class="third-pane ">
 <h3 class= "content-title">Who to follow</h3>
 
-  <div class="users-list">
+  <div class="users-list px-4 my-2">
     <% @all_users.each do |user| %>
+    <div class="d-flex my-3">
       <% if who_not_to_follow.exclude?(user.id) %>
       <%if user.avatar.nil? %>
-       <%= image_tag("home.svg", style:"width: 20px; " ) %> 
+       <%= image_tag("home.svg", class: 'user-image' ) %> 
        <% else %>
-       <%= image_tag user.avatar, style:"width: 50px; display: block" %>
+       <%= image_tag user.avatar, class: 'user-image' %>
        <% end %>
-        <h3 class="profile-link">
-          <%= link_to user.name, user_path(user.id), class: 'profile-link' %>
+       <div class="ml-3 ">
+        <h3>
+          <%= link_to user.full_name, user_path(user.id), class: 'user-name' %>
         </h3>
         <p>Followed by (Coming soon)</p>
+        </div>
         <% end %>
-      <p>
-      </p>
+  </div>
     <% end %>
   </div>
 </div>
