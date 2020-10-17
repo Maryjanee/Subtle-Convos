@@ -25,11 +25,30 @@ class AccessController < ApplicationController
     end
   end
 
-  def show; end
+  def show;
+  @user = User.find(params[:id]);
+  
+  @feeling = Feeling.new
+  @all_user_feelings = Feeling.where(user_id: @user.id)
+  @followed_users = followed_users(@user.following.ids)
+
+
+  end
 
   def logout
     session[:user_id] = nil
     flash[:notice] = 'Logged out'
     redirect_to access_login_path
   end
+  
+  private
+  
+  def followed_users(user_ids_array)
+    arr = []
+    user_ids_array.each do |id|
+      arr << User.find(id)
+    end
+    return arr
+  end
+  
 end

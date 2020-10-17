@@ -6,6 +6,9 @@
     
         <% if current_user.avatar.attached? %>
           <%= image_tag current_user.avatar, style:"width: 50px; display: block" %>
+           <% else %>
+            <%= image_tag("home.svg", class: 'user-image' ) %> 
+       
         <% end %>
       <p class="current-user"><%= current_user.full_name.upcase() %></p>
     </div>
@@ -28,8 +31,72 @@
    <div class= "top-banner">
    <h1>Subtle Convos</h1>
 </div>
+<section class="page-content">
+   <div class="middle-pane">
+    <div >
+       <% if !@user.cover_image.nil? %>
+          <%= image_tag @user.cover_image, class: 'cover-image'%>
+          <% else %>
+            <%= image_tag("cover-3.jpg", class: 'cover-image' ) %> 
+        <% end %>
+    </div>
+    <h4 class="my-3">All feelings </h4>
+    
 
-<div class="middle-pane bg-danger">
-hello
+    <div class="form-wrapper">
+    <h5>Conversation from from <%= @user.full_name.upcase()%> </h5>
+          <%= render 'form' %>
+   
+   </div>
+    <div class="form-wrapper my-4 ">
+      <% @all_user_feelings.each do |content| %>
+      <div class="user-posts d-flex my-4">
+          <%= image_tag content.user.avatar, class: 'user-image' %>
+        <div class="ml-3">
+            <h3><%=link_to content.user.full_name,  user_path(content.user.id), class: 'user-name' %></h3>
+            
+    
+            <p><%= content.body %></p>
+        </div>
+      </div>
+      <%end%>
+    </div>
+    
+   </div>
+  
+
+<div class="third-pane ">
+
+<div class="rounded-circle d-flex ">
+  <%= image_tag("plus.svg", style:"width: 18px;" ) %> 
 </div>
-<div class="third-pane bg-warning">Hi there</div>
+<%= image_tag @user.avatar, class: 'user-image' %>
+<p><%=@user.full_name.upcase()%></p>
+<small>@<%=@user.name%></small>
+
+<div class="d-flex user-stats">
+<p><%=@user.feelings.count %><br/>Convos </p>
+<p><%=@user.following.count %><br/>Following </p>
+<p><%=@user.followers.count %><br/> Followers</p>
+</div>
+
+<% if @user.followers.nil? %>
+<p>No Followers</p>
+<%else %>
+<% @followed_users.each do |user| %>
+<%= image_tag user.avatar, class: 'user-image' %>
+<p><%=link_to user.full_name,  user_path(user.id), class: 'user-name' %></p>
+<div class="rounded-circle d-flex ">
+  <%= image_tag("plus.svg", style:"width: 18px;" ) %> 
+</div>
+<% end %>
+<%end%>
+
+</div>
+
+</div>
+d
+
+</section>
+
+

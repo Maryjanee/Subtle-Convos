@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
     if @user.save
       @user.avatar.attach(params[:users][:avatar])
-      # @user.avatar.attach(params[:users][:cover_image])
+       @user.avatar.attach(params[:users][:cover_image])
       render 'access/login'
     else
       flash.now[:alert] = 'User creation unsuccessful.'
@@ -30,6 +30,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :full_name, :avatar)
+    params.require(:user).permit(:name, :full_name, :avatar, :cover_image)
   end
 end

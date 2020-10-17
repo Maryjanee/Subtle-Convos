@@ -5,7 +5,7 @@
   <%= f.text_field(:full_name, placeholder: 'Full Name', :class => "user_name") %>
   <%= f.label 'Avatar' %>
   <%= f.file_field(:avatar, :class => "user_name") %>
-  <%# <%= f.label 'Cover Photo' %>
-  <%# <%= f.file_field(:cover_image, :class => "user_name") %> 
+  <%= f.label 'Cover Photo' %>
+  <%= f.file_field(:cover_image, :class => "user_name")%>
   <%= f.submit "Sign Up", :class => "submit_btn" %>
 <% end %>
