@@ -9,26 +9,25 @@
  </div>
   
   <section class="left-pane">
-    <div class = "user-info d-flex pl-1 py-1">
-    
+    <div class = "user-info d-flex ">
         <% if current_user.avatar.attached? %>
-          <%= image_tag current_user.avatar, class: 'user-image' %>
+          <%= image_tag current_user.avatar, class: 'user-image ml-4 mt-2' %>
           <% else %>
-           <%= image_tag("user-profile.svg", style:"width: 20px;") %>
+           <%= image_tag("egg_avatar", class: 'user-image ml-4 mt-2' ) %>
         <% end %>
-      <p class="current-user"><%= current_user.full_name.upcase() %></p>
+      <p class="current-user mt-3 ml-4"><%= current_user.full_name.upcase() %></p>
     </div>
       <div class="relationship-count d-flex">
-      <p><%= current_user.followers.count %>  Followers </p>
-      <p><%= current_user.following.count %> Following </p>
+      <p><%= current_user.followers.count %><br/>  Followers </p>
+      <p><%= current_user.following.count %> <br/> Following </p>
     </div>
     <div class="nav">
-         <div class="nav-link active">
-            <%= image_tag("home.svg", style:"width: 20px; " ) %> 
+         <div class="nav-link active ">
+            <%= image_tag("home.svg",class: 'ml-3  nav-icons' ) %> 
             <%= link_to "Home", access_dashboard_path %>
         </div>
-        <div class="nav-link"><%= image_tag("user-profile.svg", style:"width: 20px;") %> <%= link_to "Profile", user_path(current_user) %></div>
-       <div class="nav-link"> <%= image_tag("logout.svg", style:"width: 20px;") %><%= link_to "Logout", access_logout_path %></div>
+        <div class="nav-link"><%= image_tag("user-profile.svg", class: ' ml-3 nav-icons') %> <%= link_to "Profile", user_path(current_user) %></div>
+       <div class="nav-link"> <%= image_tag("logout.svg", class: ' ml-3 nav-icons') %><%= link_to "Logout", access_logout_path %></div>
         
           
     </div>
@@ -39,23 +38,24 @@
    <div class="middle-pane">
     <h3 class= "content-title ">All conversations</h3>
     <div class="form-wrapper">
-        <h3 class="text-uppercase">Say Something</h3>
+        <h3 class="text-uppercase">Post a feeling</h3>
         <%= render 'form' %>
     </div>
     
   
     <div class="form-wrapper">
+    <h4 class= "text-primary text-uppercase my-4">4 Newly Posted Feelings</h4>
+    <div class="user-posts mb-2" >
       <% @all_feelings.each do |feeling| %>
-      <div class="user-posts d-flex my-4">
+      <div class="d-flex my-3">
           <%= image_tag feeling.user.avatar, class: 'user-image' %>
         <div class="ml-3">
             <h3><%=link_to feeling.user.full_name,  user_path(feeling.user.id), class: 'user-name' %></h3>
-    
-            <p><%= feeling.body %></p>
+            <p class="ml-3"><%= feeling.body %></p>
         </div>
       </div>
       <%end%>
-    
+    </div>
     </div>
     
    </div>
@@ -77,7 +77,12 @@
         <h3>
           <%= link_to user.full_name, user_path(user.id), class: 'user-name' %>
         </h3>
-        <p>Followed by (Coming soon)</p>
+        <% if user.following.ids.empty? %>
+        <p class= "ml-3">No Followers</p>
+        <% else %>
+         <p class="ml-3"> Followed by <%=link_to User.find(user.following.ids[0]).full_name,  user_path(User.find(user.following.ids[0]).id), class: 'user-name inline' %> </p>
+         
+         <% end %>
         </div>
         <% end %>
   </div>

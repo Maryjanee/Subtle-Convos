@@ -34,10 +34,10 @@
 <section class="page-content">
    <div class="middle-pane">
     <div >
-       <% if !@user.cover_image.nil? %>
-          <%= image_tag @user.cover_image, class: 'cover-image'%>
+       <% if @user.cover_image.nil? %>
+       <%= image_tag("cover-3.jpg", class: 'cover-image' ) %>   
           <% else %>
-            <%= image_tag("cover-3.jpg", class: 'cover-image' ) %> 
+            <%= image_tag @user.cover_image, class: 'cover-image'%>
         <% end %>
     </div>
     <h4 class="my-3">All feelings </h4>
