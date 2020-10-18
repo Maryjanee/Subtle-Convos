@@ -3,7 +3,11 @@ module AccessHelper
     current_user.following.ids << current_user.id
   end
 
-  # def followed_by(user)
-  #   user.following.first.first_name
-  # end
+  def first_user_name(user)
+    User.find(user.following.ids[0]).full_name
+  end
+
+  def first_user_id(user)
+    User.find(user.following.ids[0]).id
+  end
 end

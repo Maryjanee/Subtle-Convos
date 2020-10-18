@@ -80,8 +80,7 @@
         <% if user.following.ids.empty? %>
         <p class= "ml-3">No Followers</p>
         <% else %>
-         <p class="ml-3"> Followed by <%=link_to User.find(user.following.ids[0]).full_name,  user_path(User.find(user.following.ids[0]).id), class: 'user-name inline' %> </p>
-         
+         <p class="ml-3"> Followed by <%=link_to first_user_name(user),  user_path(first_user_id(user)),  class: 'user-name inline' %> </p>
          <% end %>
         </div>
         <% end %>

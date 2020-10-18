@@ -84,22 +84,34 @@
 <p><%=@user.followers.count %><br/> Followers</p>
 </div>
 
+<% if who_not_to_follow.exclude?(@user.id) %>
+<div class="rounded-circle d-flex ">
+ <%= button_to relationships_path(followed_id: @user.id) do  %>
+  <%= image_tag("plus.svg", style:"width: 18px;" ) %> 
+  <% end %>
+</div>
+<% end %>
+
 <% if @user.following.nil? %>
 <p>No Followers</p>
 <%else %>
 <% @followed_users.each do |user| %>
 <%= image_tag user.avatar, class: 'user-image' %>
 <p><%=link_to user.full_name,  user_path(user.id), class: 'user-name' %></p>
+
+<% if who_not_to_follow.exclude?(@user.id) %>
 <div class="rounded-circle d-flex ">
+ <%= button_to relationships_path(followed_id: @user.id) do  %>
   <%= image_tag("plus.svg", style:"width: 18px;" ) %> 
+  <% end %>
 </div>
+<% end %>
 <% end %>
 <%end%>
 
 </div>
 
 </div>
-d
 
 </section>
 

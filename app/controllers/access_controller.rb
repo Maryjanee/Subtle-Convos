@@ -3,8 +3,8 @@ class AccessController < ApplicationController
 
   before_action :confirm_logged_in, except: %i[login create]
   def dashboard
-    @all_users = User.all.includes([:avatar_attachment])
-    @all_feelings = Feeling.all.limit(4).order(created_at: :desc).includes([:user])
+    @all_users = User.all.includes([:avatar_attachment, :following])
+    @all_feelings = Feeling.all.includes([:user]).limit(4).order(created_at: :desc)
     @feeling = Feeling.new
   end
 
@@ -25,7 +25,7 @@ class AccessController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @all_user_feelings = Feeling.where(user_id: @user.id)
+    @all_user_feelings = Feeling.where(user_id: @user.id).includes([:user])
     @followed_users = followed_users(@user.followers.ids)
     @feeling = Feeling.new
   end

@@ -10,11 +10,15 @@ class RelationshipsController < ApplicationController
     end 
   end
   
+
+  
   private
   
   def current_user
-    User.find(session[:user_id])
+    User.where(:user_id: session[:user_id]).includes(:followers, :following)
   end
+  
+  
   
  
 end
