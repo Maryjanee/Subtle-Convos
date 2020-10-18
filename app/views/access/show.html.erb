@@ -54,8 +54,6 @@
           <%= image_tag content.user.avatar, class: 'user-image' %>
         <div class="ml-3">
             <h3><%=link_to content.user.full_name,  user_path(content.user.id), class: 'user-name' %></h3>
-            
-    
             <p><%= content.body %></p>
         </div>
       </div>
@@ -67,9 +65,15 @@
 
 <div class="third-pane ">
 
+<% if who_not_to_follow.exclude?(@user.id) %>
 <div class="rounded-circle d-flex ">
+ <%= button_to relationships_path(followed_id: @user.id) do  %>
   <%= image_tag("plus.svg", style:"width: 18px;" ) %> 
+  <% end %>
 </div>
+<% end %>
+
+
 <%= image_tag @user.avatar, class: 'user-image' %>
 <p><%=@user.full_name.upcase()%></p>
 <small>@<%=@user.name%></small>
@@ -80,7 +84,7 @@
 <p><%=@user.followers.count %><br/> Followers</p>
 </div>
 
-<% if @user.followers.nil? %>
+<% if @user.following.nil? %>
 <p>No Followers</p>
 <%else %>
 <% @followed_users.each do |user| %>
