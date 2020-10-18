@@ -13,9 +13,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      @user.avatar.attach(params[:users][:avatar])
-      
-      render 'access/login'
+      @user.avatar.attach(params[:user][:avatar])
+      redirect_to access_dashboard_path
     else
       flash.now[:alert] = 'User creation unsuccessful.'
     end

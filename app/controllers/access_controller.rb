@@ -1,6 +1,6 @@
 class AccessController < ApplicationController
   include AccessHelper
-  
+
   before_action :confirm_logged_in, except: %i[login create]
   def dashboard
     @all_users = User.all.limit(5).includes([:avatar_attachment])
@@ -8,9 +8,7 @@ class AccessController < ApplicationController
     @feeling = Feeling.new
   end
 
-  def login
-    
-  end
+  def login; end
 
   def create
     user = User.where(name: params[:username]).first if params[:username].present?
@@ -25,14 +23,11 @@ class AccessController < ApplicationController
     end
   end
 
-  def show;
-  @user = User.find(params[:id]);
-  
-  @feeling = Feeling.new
-  @all_user_feelings = Feeling.where(user_id: @user.id)
-  @followed_users = followed_users(@user.following.ids)
-
-
+  def show
+    @user = User.find(params[:id])
+    @all_user_feelings = Feeling.where(user_id: @user.id)
+    @followed_users = followed_users(@user.following.ids)
+    @feeling = Feeling.new
   end
 
   def logout
@@ -40,15 +35,14 @@ class AccessController < ApplicationController
     flash[:notice] = 'Logged out'
     redirect_to access_login_path
   end
-  
+
   private
-  
+
   def followed_users(user_ids_array)
     arr = []
     user_ids_array.each do |id|
       arr << User.find(id)
     end
-    return arr
+    arr
   end
-  
 end
