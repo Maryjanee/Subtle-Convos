@@ -1,117 +1,110 @@
 
-
 <div class="container">
-<section class="left-pane">
-    <div class = "user-info d-flex pl-1 py-1">
-    
-        <% if current_user.avatar.attached? %>
-          <%= image_tag current_user.avatar, style:"width: 50px; display: block" %>
-           <% else %>
-            <%= image_tag("home.svg", class: 'user-image' ) %> 
-       
-        <% end %>
-      <p class="current-user"><%= current_user.full_name.upcase() %></p>
-    </div>
-      <div class="relationship-count d-flex">
-      <p><%= current_user.followers.count %>  Followers </p>
-      <p><%= current_user.following.count %> Following </p>
-    </div>
-    <div class="nav">
-         <div class="nav-link active">
-            <%= image_tag("home.svg", style:"width: 20px; " ) %> 
-            <%= link_to "Home", access_dashboard_path %>
+    <section class="left-pane">
+        <div class = "user-info d-flex pl-1 py-1">
+            <% if current_user.avatar.attached? %>
+                <%= image_tag current_user.avatar, style:"width: 50px; display: block" %>
+            <% else %>
+                <%= image_tag("home.svg", class: 'user-image' ) %> 
+            <% end %>
+            <p class="current-user"><%= current_user.full_name.upcase() %></p>
         </div>
-        <div class="nav-link"><%= image_tag("user-profile.svg", style:"width: 20px;") %> <%= link_to "Profile", user_path(current_user) %></div>
-       <div class="nav-link"> <%= image_tag("logout.svg", style:"width: 20px;") %><%= link_to "Logout", access_logout_path %></div>
+        <div class="relationship-count d-flex">
+            <p><%= current_user.followers.count %>  Followers </p>
+            <p><%= current_user.following.count %> Following </p>
+        </div>
+        <nav>
+            <div class="nav-link active">
+                <%= image_tag("home.svg", style:"width: 20px; " ) %> 
+                <%= link_to "Home", access_dashboard_path %>
+            </div>
+            <div class="nav-link"><%= image_tag("user-profile.svg", style:"width: 20px;") %> <%= link_to "Profile", user_path(current_user) %></div>
+            <div class="nav-link"> <%= image_tag("logout.svg", style:"width: 20px;") %><%= link_to "Logout", access_logout_path %></div> 
+        </nav>
+      
+      </section>
+        <div class= "top-banner">
+          <h1>Subtle Convos</h1>
+        </div>
+    <section class="page-content">
+      <div class="middle-pane">
+        <div>
+            <% if @user.cover_image.nil? %>
+                <%= image_tag("cover-3.jpg", class: 'cover-image' ) %>   
+            <% else %>
+                <%= image_tag @user.cover_image, class: 'cover-image'%>
+            <% end %>
+          </div>
+          <h4 class="my-3">All feelings </h4>
+          <div class="form-wrapper">
+          <h5>Conversation from from <%= @user.full_name.upcase()%> </h5>
+              <%= render 'form' %>
         
-          
-    </div>
-  
-   </section>
-   <div class= "top-banner">
-   <h1>Subtle Convos</h1>
-</div>
-<section class="page-content">
-   <div class="middle-pane">
-    <div >
-       <% if @user.cover_image.nil? %>
-       <%= image_tag("cover-3.jpg", class: 'cover-image' ) %>   
-          <% else %>
-            <%= image_tag @user.cover_image, class: 'cover-image'%>
-        <% end %>
-    </div>
-    <h4 class="my-3">All feelings </h4>
-    
-
-    <div class="form-wrapper">
-    <h5>Conversation from from <%= @user.full_name.upcase()%> </h5>
-          <%= render 'form' %>
-   
-   </div>
-    <div class="form-wrapper my-4 ">
-      <% @all_user_feelings.each do |content| %>
-      <div class="user-posts d-flex my-4">
-          <%= image_tag content.user.avatar, class: 'user-image' %>
-        <div class="ml-3">
-            <h3><%=link_to content.user.full_name,  user_path(content.user.id), class: 'user-name' %></h3>
-            <p><%= content.body %></p>
-        </div>
       </div>
-      <%end%>
+        <div class="form-wrapper my-4 ">
+            <% @all_user_feelings.each do |content| %>
+              <div class="user-posts d-flex my-4">
+                  <%= image_tag content.user.avatar, class: 'user-image' %>
+                <div class="ml-3">
+                  <h3><%=link_to content.user.full_name,  user_path(content.user.id), class: 'user-name' %></h3>
+                    <p><%= content.body %></p>
+                </div>
+              </div>
+           <%end%>
+      </div>
+        
+  </div>
+      
+
+      <div class="third-pane ">
+
+        <% if who_not_to_follow.exclude?(@user.id) %>
+            <div class="rounded-circle d-flex ">
+              <%= button_to relationships_path(followed_id: @user.id) do  %>
+                  <%= image_tag("plus.svg", style:"width: 18px;" ) %> 
+              <% end %>
+            </div>
+        <% end %>
+
+
+      <%= image_tag @user.avatar, class: 'user-image' %>
+      <p><%=@user.full_name.upcase()%></p>
+      <small>@<%=@user.name%></small>
+
+      <div class="d-flex user-stats">
+          <p><%=@user.feelings.count %><br/>Convos </p>
+          <p><%=@user.following.count %><br/>Following </p>
+          <p><%=@user.followers.count %><br/> Followers</p>
+      </div>
+
+      <% if who_not_to_follow.exclude?(@user.id) %>
+          <div class="rounded-circle d-flex ">
+              <%= button_to relationships_path(followed_id: @user.id) do  %>
+                  <%= image_tag("plus.svg", style:"width: 18px;" ) %> 
+              <% end %>
+          </div>
+      <% end %>
+
+        <% if @user.following.nil? %>
+          <p>No Followers</p>
+        <%else %>
+          <% @followed_users.each do |user| %>
+              <%= image_tag user.avatar, class: 'user-image' %>
+              <p><%=link_to user.full_name,  user_path(user.id), class: 'user-name' %></p>
+
+              <% if who_not_to_follow.exclude?(@user.id) %>
+                  <div class="rounded-circle d-flex ">
+                  <%= button_to relationships_path(followed_id: @user.id) do  %>
+                    <%= image_tag("plus.svg", style:"width: 18px;" ) %> 
+                    <% end %>
+                  </div>
+              <% end %>
+          <% end %>
+        <%end%>
+
+      </div>
+
     </div>
-    
-   </div>
-  
-
-<div class="third-pane ">
-
-<% if who_not_to_follow.exclude?(@user.id) %>
-<div class="rounded-circle d-flex ">
- <%= button_to relationships_path(followed_id: @user.id) do  %>
-  <%= image_tag("plus.svg", style:"width: 18px;" ) %> 
-  <% end %>
-</div>
-<% end %>
-
-
-<%= image_tag @user.avatar, class: 'user-image' %>
-<p><%=@user.full_name.upcase()%></p>
-<small>@<%=@user.name%></small>
-
-<div class="d-flex user-stats">
-<p><%=@user.feelings.count %><br/>Convos </p>
-<p><%=@user.following.count %><br/>Following </p>
-<p><%=@user.followers.count %><br/> Followers</p>
-</div>
-
-<% if who_not_to_follow.exclude?(@user.id) %>
-<div class="rounded-circle d-flex ">
- <%= button_to relationships_path(followed_id: @user.id) do  %>
-  <%= image_tag("plus.svg", style:"width: 18px;" ) %> 
-  <% end %>
-</div>
-<% end %>
-
-<% if @user.following.nil? %>
-<p>No Followers</p>
-<%else %>
-<% @followed_users.each do |user| %>
-<%= image_tag user.avatar, class: 'user-image' %>
-<p><%=link_to user.full_name,  user_path(user.id), class: 'user-name' %></p>
-
-<% if who_not_to_follow.exclude?(@user.id) %>
-<div class="rounded-circle d-flex ">
- <%= button_to relationships_path(followed_id: @user.id) do  %>
-  <%= image_tag("plus.svg", style:"width: 18px;" ) %> 
-  <% end %>
-</div>
-<% end %>
-<% end %>
-<%end%>
-
-</div>
-
-</div>
 
 </section>
 

@@ -1,26 +1,26 @@
-<div class ="flash">
-  <% if !flash[:notice].blank?%>
-    <div class="notice">
-    <%= flash[:notice]%>
-    </div>
-    <% end %>
-</div>
-  
-  
+  <div class ="flash">
+      <% if !flash[:notice].blank?%>
+        <div class="notice">
+          <%= flash[:notice]%>
+        </div>
+      <% end %>
+  </div>
+    
+    
   <div class="left-pane"></div>
-  <div class="top-banner">
-    <h1>Subtle Convos</h1>
+    <div class="top-banner">
+      <h1>Subtle Convos</h1>
   </div>
 
 
-<div class="form-container">
+  <div class="form-container">
 
-<%= form_for(access_path, :method => :post, html: {class: "form-content"}) do %>
-<%= label_tag(:username)%>
+        <%= form_for(access_path, :method => :post, html: {class: "form-content"}) do %>
+            <%= label_tag(:username)%>
+            <%= text_field_tag(:username, params[:username], :class => "user_name")%>
+            <%= submit_tag('Log In', :class => "submit_btn")%>
+        <% end %>
 
-<%= text_field_tag(:username, params[:username], :class => "user_name")%>
-<%= submit_tag('Log In', :class => "submit_btn")%>
-<% end %>
-
-  <p>Don't have an account yet? <%= link_to "Sign Up", new_user_path, :class => "links" %></p>
-</div>
+        <p>Don't have an account yet? <%= link_to "Sign Up", new_user_path, :class => "links" %></p>
+        
+  </div>

@@ -1,6 +1,5 @@
  <div class="card-body">
-      
-        <%= form_for(@feeling, url: feelings_path) do |f| %>
-            <%= f.text_field :body, autofocus: true, class: "form-control", placeholder: "How do you Feel?" %>
-        <% end %>
-    </div>
+    <%= form_for(@feeling, url: feelings_path) do |f| %>
+      <%= f.text_field :body, autofocus: true, class: "form-control", placeholder: "How do you Feel?" %>
+    <% end %>
+</div>
