@@ -1,6 +1,12 @@
 class CommentsController < ApplicationController
+  
+  include UserHelper
+  
   def create
-    @comment = Comment.create(comment_params)
+    @comment = current_user.comments.new
+    @comment.body = params[:comment][:body]
+    @comment.feeling_id = params[:feeling_id]
+    
     if @comment.save
       redirect_to request.referrer, notice: 'Comment was successfully created.'
     else
@@ -8,14 +14,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  private
-
-  def comment_params
-    params.require(:comment).permit(:user, :feeling , :body)
-  end
   
-  def current_user
-    User.find(session[:user_id])
-  end
   
 end
