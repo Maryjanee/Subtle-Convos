@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   
   resources :feelings, only:[:new, :create]
   
+  resources :comments, only: [:create]
+  
 
   
  

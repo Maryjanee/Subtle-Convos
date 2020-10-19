@@ -11,4 +11,6 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one_attached :avatar
   # has_one_attached :cover_image
+  
+ 
 end

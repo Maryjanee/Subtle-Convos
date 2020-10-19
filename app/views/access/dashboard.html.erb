@@ -8,6 +8,7 @@
     <h1>Subtle Convos</h1>
  </div>
   
+  
   <section class="left-pane">
   
     <div class = "user-info d-flex ">
@@ -55,7 +56,23 @@
                     <p class="ml-3"><%= feeling.body %></p>
                 </div>  
               </div>
-              <%end%>
+           <div class='post-comments-section'>
+    <% feeling.comments.each do |comment| %>
+      <div class="post-comments">
+        <p>
+          <b><%= comment.user.name %>:</b> <%= comment.content %>
+        </p>
+        <span> <%= comment.created_at.strftime("%Y/%m/%d") %> </span>
+      </div>
+    <% end %>
+
+    <%= form_for(feeling.comments.new, url: comments_path(feeling)) do |form| %>
+      <%= form.text_field :body, placeholder: 'Add new Comment' %>
+      <%= form.submit 'Comment', class: 'btn btn-secondary' %>
+    <% end %>
+  </div>     <%end%>
+              <div>
+</div>
             </div>
         </div>
       </div>
