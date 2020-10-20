@@ -1,369 +1,348 @@
 @import "bootstrap/scss/bootstrap";
- 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
- 
- 
- $blue: #52a7e8;
- $dark_blue : #213346;
- $background_grey : #F5F6F8;
- $padding-sm : 1rem;
- $white :#fff;
- $line-grey: #b3b3b3;
- $title-grey :#999999;
- $font-stack :'Poppins', sans-serif;
- 
+
+$blue: #52a7e8;
+$dark_blue : #213346;
+$background_grey : #f5f6f8;
+$padding-sm : 1rem;
+$white :#fff;
+$line-grey: #b3b3b3;
+$title-grey :#999;
+$font-stack :'Poppins', sans-serif;
 
 * {
-  margin:0;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-li{
+li {
   list-style: none;
 }
 
-a, .current-user{
+a,
+.current-user {
   text-decoration: none;
   display: block;
-  color:$white;
-  margin-left:1rem;
+  color: $white;
+  margin-left: 1rem;
 }
 
-button{
-  border:0;
+button {
+  border: 0;
 }
 
-
- body {
-   background:$background_grey;
-   font-family: $font-stack;
-   
- }
- 
- .rounded{
-  
-    background: #ffc0c0;
-    padding:30px;
-    border-radius: 50%;
-    width:2rem;
- }
- 
- .rounded-circle{
-   border: 2px solid $line-grey;
-   width:40px;
-   padding:.6rem;
-   
-   align-items: center;
-   justify-content: center;
-   
-   button{
-     border:0;
-   }
- }
- 
- .user-info{
-   align-items:center;
-   height:100px;
- }
- 
- 
- 
- .active{
-   background: #57A8E5;
+body {
+  background: $background_grey;
+  font-family: $font-stack;
 }
 
+.rounded {
+  background: #ffc0c0;
+  padding: 30px;
+  border-radius: 50%;
+  width: 2rem;
+}
 
-.relationship-count{
-  width: 100%;
-  p {
-    border:1px solid #00111a;
-    padding:1rem 2rem;
-    color:$white;
-    display:flex;
-    flex-direction: column;
-    text-align:center;
+.rounded-circle {
+  border: 2px solid $line-grey;
+  width: 40px;
+  padding: 0.6rem;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    border: 0;
   }
 }
 
- 
- .nav-link{
-   display:flex;
-   width:100%;
-   padding: 1rem 1.5rem;
-   margin-bottom:.3rem;
-   
- }
- 
- .single-user{
-   margin-left:6rem;
-   width:80%;
-   margin:2rem auto;
-   
+.user-info {
+  align-items: center;
+  height: 100px;
+}
 
-   p.mt-4{
-     color:$blue;
-     font-size:1.1rem;
-   }
-   
-   p.mb-3{
-     color:$line-grey
-   }
-  
- }
- 
- .user-stats{
-   width:100%;
-   margin-top:0;
-   p{
-     border:1px solid $line-grey;
-     padding:1rem 1.5rem;
-     width:35%;
-   }
- }
- 
- .single-user-image{
-   border-radius:50%;
-   width:1rem;
-   height:1rem;
- }
- 
- .text-uppercase {
-   text-transform: uppercase;
-   font-size:.9rem;
- }
- 
- .links{
-   color:$blue;
- }
+.active {
+  background: #57a8e5;
+}
 
- .left-pane {
-   background: $dark_blue;
-   height: 100vh;
-   width:20%;
-   position:fixed;
-   top:0;
-   left:0;
-   bottom:0;
-  
- }
- 
- .top-banner{
-   background: $blue;
-   width:80%;
-   height:5rem;
-   position:fixed;
-   z-index:100;
-   left: 17.7rem;
-   top:0;
-   padding: $padding-sm;
- }
- 
- .notice, .alert{
-   background:green;
-   width:30%;
-   border-radius: .2rem;
-   color:$white;
-   padding:1rem 2rem;
-   position: absolute;
-   right:0;
-   top:6rem;
-  
- }
- 
- .nav-icons{
-   width:20px;
- }
- 
- .alert{
-    background:red;
- }
- 
- .form-container{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    padding: 2rem;
-    
- }
- 
- .form-content {
-   display: flex;
-   flex-direction : column;
-   margin: 1rem 0;
- }
- 
- .form-field{
-   width:100%;
-   padding:1rem 1.5rem;
-   border:1px solid $line-grey;
-   border-radius:.5rem;
-   margin:.5rem 0;
- }
- 
-  .user_name {
-      width:30rem;
-      border-radius: .2rem;
-      padding: .8rem 1.5rem;
-      border:2px solid $blue;
-      margin: .3rem 0;
-      font-size: 1rem;
-      font-family: 'Montserrat', sans-serif;
-      
-    } 
-    
-  .submit_btn {
-       padding: 1rem 1.5rem;
-       width:30rem;
-       color: $white; 
-       background: $blue;
-       border: 0;
-       border-radius: .2rem;
-       font-size: 1rem;
-       
+.relationship-count {
+  width: 100%;
+
+  p {
+    border: 1px solid #00111a;
+    padding: 1rem 2rem;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.nav-link {
+  display: flex;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.single-user {
+  width: 80%;
+  margin: 2rem auto;
+
+  p.mt-4 {
+    color: $blue;
+    font-size: 1.1rem;
+  }
+
+  p.mb-3 {
+    color: $line-grey;
+  }
+}
+
+.user-stats {
+  width: 100%;
+  margin-top: 0;
+
+  p {
+    border: 1px solid $line-grey;
+    padding: 1rem 1.5rem;
+    width: 35%;
+  }
+}
+
+.single-user-image {
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.links {
+  color: $blue;
+}
+
+.left-pane {
+  background: $dark_blue;
+  height: 100vh;
+  width: 20%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.top-banner {
+  background: $blue;
+  width: 80%;
+  height: 5rem;
+  position: fixed;
+  z-index: 100;
+  left: 17.7rem;
+  top: 0;
+  padding: $padding-sm;
+}
+
+.notice,
+.alert {
+  background: green;
+  width: 30%;
+  border-radius: 0.2rem;
+  color: $white;
+  padding: 1rem 2rem;
+  position: absolute;
+  right: 0;
+  top: 6rem;
+}
+
+.nav-icons {
+  width: 20px;
+}
+
+.alert {
+  background: red;
+}
+
+.form-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+
+.form-field {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 1px solid $line-grey;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.user_name {
+  width: 30rem;
+  border-radius: 0.2rem;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid $blue;
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.submit_btn {
+  padding: 1rem 1.5rem;
+  width: 30rem;
+  color: $white;
+  background: $blue;
+  border: 0;
+  border-radius: 0.2rem;
+  font-size: 1rem;
+}
+
+.feeling_btn {
+  margin-left: 31rem;
+  padding: 0.5rem;
+  width: 10rem;
+  background: $blue;
+  border: 0;
+  border-radius: 0.3rem;
+}
+
+.page-content {
+  position: absolute;
+  top: 5rem;
+  left: 18.3rem;
+  height: 80%;
+  width: 79.5%;
+  display: flex;
+}
+
+.content-title {
+  text-transform: uppercase;
+  color: $title-grey;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid $line-grey;
+}
+
+.middle-pane {
+  width: 65%;
+}
+
+.form-wrapper {
+  background: $white;
+  margin: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.third-pane {
+  width: 35%;
+  height: 100%;
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+.user-name {
+  color: #00264d;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.user-image {
+  width: 50px;
+  height: 50px;
+}
+
+.cover-image {
+  width: 100%;
+  height: 13rem;
+}
+
+.user-posts {
+  border-top: 1px solid $line-grey;
+}
+
+.single-user-info {
+  div {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+
+    img {
+      width: 100%;
+      height: auto;
     }
-    .feeling_btn{
-      margin-left:31rem;
-      padding:.5rem;
-      width:10rem;
+  }
+}
+
+.user-details {
+  p {
+    margin-bottom: 0;
+    margin-left: 3rem;
+  }
+
+  p a {
+    display: inline-block;
+    margin-left: 0;
+    color: $line-grey;
+  }
+}
+
+.followed {
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    border: 0;
+  }
+}
+
+.post-comments {
+  p {
+    display: inline-block;
+    font-size: 0.8rem;
+    text-align: right;
+    margin-top: 0;
+  }
+
+  .user-handle {
+    margin-left: 5rem;
+  }
+}
+
+.feeling-comments-section {
+  form {
+    margin-left: 5rem;
+    width: 100%;
+
+    .comment-text {
+      padding: 0.6rem;
+      width: 70%;
+      font-size: 0.8rem;
+    }
+
+    .comment-btn {
+      padding: 0.6rem;
       background: $blue;
-      border:0;
-      border-radius:.3rem;
+      border: 0;
+      border-radius: 0.3rem;
+      font-size: 0.8rem;
     }
-    
-    .page-content{
-      position:absolute;
-      top: 5rem;
-      left: 18.3rem;
-      height:80%;
-      width: 79.5%;
-      display: flex;
-      
-    }
-    
-    .content-title{
-      text-transform: uppercase;
-      color: $title-grey;
-      padding:1.5rem;
-      font-size:.9rem;
-      border-bottom : 1px solid $line-grey;
-    }
-    
-    .middle-pane{
-      width:65%;
-    }
-    
-    .form-wrapper{
-        background: $white;
-        margin: 1rem;
-        padding:1rem 1.5rem;
-        border-radius:.5rem;
-      }
-    
-    .third-pane {
-    
-      width:35%;
-      height:100%;
-    }
-    
-    nav{
-      margin-top:1rem;
-    }
-    
-    .user-name {
-      color:#00264d;
-      font-size: .9rem;
-      font-weight:700;
-    }
-    .user-image{
-     width: 50px;
-     height: 50px; 
-    }
-    
-    .cover-image{
-      width:100%;
-      height:13rem;
-    }
-    
-    .user-posts{
-      border-top:1px solid $line-grey;
-    }
-    
-  .single-user-info{
-      
-      div {
-          position: relative;
-          width: 100px;
-          height: 100px;
-          overflow: hidden;
-          border-radius: 50%
-        
-        img{
-         width: 100%;
-         height: auto;
-        }
-      }
-      
-    }
-    
-    .user-details{
-      p{
-        margin-bottom:0;
-        margin-left:3rem;
-      }
-       p a{
-     display:inline-block;
-     margin-left:0;
-     color:$line-grey
-        }
-      
-    }
-    
-    .followed{
-      justify-content: space-between;
-      align-items :center;
-      button{
-        margin-top:0;
-        margin-bottom:2rem;
-        border:0;
-      
-      }
-    }
-    
-    .post-comments{
-      p{
-        display:inline-block;
-        font-size:.8rem;
-        text-align:right;
-        margin-top:0;
-      }
-      .user-handle{
-       margin-left:5rem;
-      }
-    }
-    
-    .feeling-comments-section{
-      form{
-        margin-left:5rem;
-       
-        width:100%;
-        .comment-text{
-           padding:.6rem ;
-           width:70%;
-            font-size:.8rem;
-        }
-        .comment-btn{
-          padding:.6rem ;
-          background:$blue;
-          border:0;
-          border-radius:.3rem;
-          font-size:.8rem;
-        }
-      }
-    }
- 
- 
- 
- 
-
+  }
+}
