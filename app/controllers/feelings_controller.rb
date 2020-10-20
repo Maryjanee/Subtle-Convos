@@ -1,7 +1,6 @@
 class FeelingsController < ApplicationController
-  
   include UsersHelper
-  
+
   def new
     @feeling = Feeling.new
   end

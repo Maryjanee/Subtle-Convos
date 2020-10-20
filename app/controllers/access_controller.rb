@@ -30,7 +30,6 @@ class AccessController < ApplicationController
     @following = followed_users(@user.following.ids)
     @feeling = Feeling.new
     @comment = Comment.new
-   
   end
 
   def logout
