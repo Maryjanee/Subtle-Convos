@@ -12,7 +12,7 @@
   
     <div class = "user-info d-flex ">
         <% if current_user.avatar.attached? %>
-            <%= image_tag current_user.avatar, class: 'user-image ml-4 mt-2' %>
+        <img src="<%=url_for(current_user.avatar)%>" class="user-image ml-4 mt-2"/>
         <% else %>
            <%= image_tag("egg_avatar", class: 'user-image ml-4 mt-2' ) %>
         <% end %>
@@ -49,7 +49,9 @@
             <div class="user-posts mb-2" >
               <% @all_feelings.each do |feeling| %>
                   <div class="d-flex my-3">
-                  <%= image_tag feeling.user.avatar, class: 'user-image' %>
+                  <% if feeling.user.avatar.attached? %>
+                  <img src="<%=url_for(feeling.user.avatar)%>" class="user-image"/>
+                  <% end %>
                     <div class="ml-3">
                         <h3><%=link_to feeling.user.full_name,  user_path(feeling.user.id), class: 'user-name' %></h3>
                         <p class="ml-3"><%= feeling.body %></p>
@@ -83,10 +85,10 @@
         <% @all_users.each do |user| %>
         <div class="d-flex my-3">
             <% if who_not_to_follow.exclude?(user.id) %>
-                <%if user.avatar.nil? %>
-                <%= image_tag("home.svg", class: 'user-image' ) %> 
+                <% if user.avatar.attached? %>
+                <img src="<%=url_for(user.avatar)%>" class="user-image"/> 
             <% else %>
-                <%= image_tag user.avatar, class: 'user-image' %>
+                <%= image_tag("home.svg", class: 'user-image') %>
             <% end %>
             <div class="ml-3 ">
                 <h3>

@@ -3,7 +3,7 @@
     <section class="left-pane">
         <div class = "user-info d-flex pl-1 py-1">
             <% if current_user.avatar.attached? %>
-                <%= image_tag current_user.avatar, style:"width: 50px; display: block" %>
+            <img src="<%=url_for(current_user.avatar)%>" class="user-image"/> 
             <% else %>
                 <%= image_tag("home.svg", class: 'user-image' ) %> 
             <% end %>
@@ -29,10 +29,10 @@
     <section class="page-content">
       <div class="middle-pane">
         <div>
-            <% if @user.cover_image.nil? %>
-                <%= image_tag("cover-3.jpg", class: 'cover-image' ) %>   
+            <% if @user.cover_image.attached? %>
+            <img src="<%=url_for(@user.cover_image,)%>" class="cover-image"/> 
             <% else %>
-                <%= image_tag @user.cover_image, class: 'cover-image'%>
+                <%= image_tag("cover-3.jpg", class: 'cover-image' ) %>   
             <% end %>
           </div>
           <h4 class="my-3">All feelings </h4>
@@ -44,7 +44,7 @@
         <div class="form-wrapper mt-5 ">
             <% @all_user_feelings.each do |content| %>
               <div class="user-posts d-flex mt-4">
-                  <%= image_tag content.user.avatar, class: 'user-image' %>
+                  <img src="<%=url_for(@user.cover_image,)%>" class='user-image'/> 
                 <div class="ml-3">
                   <h3><%=link_to content.user.full_name,  user_path(content.user.id), class: 'user-name' %></h3>
                     <p><%= content.body %></p>
@@ -68,7 +68,7 @@
 
       <div class="single-user-info">
         <div>
-      <%= image_tag @user.avatar, class: 'single-user-img' %>
+      <img src="<%=url_for(@user.avatar,)%>" class="single-user-img"/> 
            </div>
       <p class="mt-4"><%=@user.full_name.upcase()%></p>
       <p class="ml-3">@<%=@user.name%></p>
@@ -87,7 +87,7 @@
           <% @followers.each do |user| %>
           <div class="d-flex mt-3 followed">
              <div class="d-flex">
-                  <%= image_tag user.avatar, class: 'user-image' %>
+                  <img src="<%=url_for(user.avatar,)%>" class="user-image"/> 
                   <div class="user-details">
                   <p><%=link_to user.full_name,  user_path(user.id), class: 'user-name' %></p>
                   <p>@<%=link_to user.name,  user_path(user.id), class: 'user-name' %></p>
