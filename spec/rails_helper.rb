@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'simplecov'
+gem 'capybara', '~> 2.7', '>= 2.7.1'
 
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
