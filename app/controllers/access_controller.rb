@@ -26,7 +26,8 @@ class AccessController < ApplicationController
   def show
     @user = User.find(params[:id])
     @all_user_feelings = Feeling.where(user_id: @user.id).includes([:user])
-    @followed_users = followed_users(@user.followers.ids)
+    @followers = followed_users(@user.followers.ids)
+    @following = followed_users(@user.following.ids)
     @feeling = Feeling.new
     @comment = Comment.new
   end
@@ -46,4 +47,6 @@ class AccessController < ApplicationController
     end
     arr
   end
+  
+  
 end

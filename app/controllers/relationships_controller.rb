@@ -1,4 +1,5 @@
 class RelationshipsController < ApplicationController
+  include UsersHelper
 
   def create
     @relationship = Relationship.create(follower_id: current_user.id, followed_id: params[:followed_id])
@@ -10,13 +11,8 @@ class RelationshipsController < ApplicationController
     end 
   end
   
-
   
-  private
   
-  def current_user
-    User.where(:user_id: session[:user_id]).includes(:followers, :following)
-  end
   
   
   

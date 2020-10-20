@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   
-  include UserHelper
+  include UsersHelper
   
   def create
     @comment = current_user.comments.new

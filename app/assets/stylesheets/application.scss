@@ -30,6 +30,10 @@ a, .current-user{
   margin-left:1rem;
 }
 
+button{
+  border:0;
+}
+
 
  body {
    background:$background_grey;
@@ -43,24 +47,27 @@ a, .current-user{
     padding:30px;
     border-radius: 50%;
     width:2rem;
-
  }
  
  .rounded-circle{
-   border: 2px solid green;
+   border: 2px solid $line-grey;
    width:40px;
    padding:.6rem;
    
    align-items: center;
    justify-content: center;
    
-   
+   button{
+     border:0;
+   }
  }
  
  .user-info{
    align-items:center;
    height:100px;
  }
+ 
+ 
  
  .active{
    background: #57A8E5;
@@ -69,7 +76,6 @@ a, .current-user{
 
 .relationship-count{
   width: 100%;
-  margin-top:1rem;
   p {
     border:1px solid #00111a;
     padding:1rem 2rem;
@@ -89,6 +95,39 @@ a, .current-user{
    
  }
  
+ .single-user{
+   margin-left:6rem;
+   width:80%;
+   margin:2rem auto;
+   
+
+   p.mt-4{
+     color:$blue;
+     font-size:1.1rem;
+   }
+   
+   p.mb-3{
+     color:$line-grey
+   }
+  
+ }
+ 
+ .user-stats{
+   width:100%;
+   margin-top:0;
+   p{
+     border:1px solid $line-grey;
+     padding:1rem 1.5rem;
+     width:35%;
+   }
+ }
+ 
+ .single-user-image{
+   border-radius:50%;
+   width:1rem;
+   height:1rem;
+ }
+ 
  .text-uppercase {
    text-transform: uppercase;
    font-size:.9rem;
@@ -106,8 +145,8 @@ a, .current-user{
    top:0;
    left:0;
    bottom:0;
-   right:0;
- 
+   
+   margin-bottom:-200px;
   
  }
  
@@ -216,7 +255,7 @@ a, .current-user{
       }
     
     .third-pane {
-      border-left:1px solid $line-grey;
+    
       width:35%;
       height:100%;
     }
@@ -244,7 +283,78 @@ a, .current-user{
       border-top:1px solid $line-grey;
     }
     
+  .single-user-info{
+      
+      div {
+          position: relative;
+          width: 100px;
+          height: 100px;
+          overflow: hidden;
+          border-radius: 50%
+        
+        img{
+         width: 100%;
+         height: auto;
+        }
+      }
+      
+    }
     
+    .user-details{
+      p{
+        margin-bottom:0;
+        margin-left:3rem;
+      }
+       p a{
+     display:inline-block;
+     margin-left:0;
+     color:$line-grey
+        }
+      
+    }
+    
+    .followed{
+      justify-content: space-between;
+      align-items :center;
+      button{
+        margin-top:0;
+        margin-bottom:2rem;
+        border:0;
+      
+      }
+    }
+    
+    .post-comments{
+      p{
+        display:inline-block;
+        font-size:.8rem;
+        text-align:right;
+        margin-top:0;
+      }
+      .user-handle{
+       margin-left:5rem;
+      }
+    }
+    
+    .feeling-comments-section{
+      form{
+        margin-left:5rem;
+       
+        width:100%;
+        .comment-text{
+           padding:.6rem ;
+           width:70%;
+            font-size:.8rem;
+        }
+        .comment-btn{
+          padding:.6rem ;
+          background:$blue;
+          border:0;
+          border-radius:.3rem;
+          font-size:.8rem;
+        }
+      }
+    }
  
  
  

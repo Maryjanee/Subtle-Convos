@@ -48,27 +48,28 @@
             <h4 class= "text-primary text-uppercase my-4">4 Newly Posted Feelings</h4>
             <div class="user-posts mb-2" >
               <% @all_feelings.each do |feeling| %>
-              <div class="d-flex my-3">
-              <%= image_tag feeling.user.avatar, class: 'user-image' %>
-                <div class="ml-3">
-                    <h3><%=link_to feeling.user.full_name,  user_path(feeling.user.id), class: 'user-name' %></h3>
-                    <p class="ml-3"><%= feeling.body %></p>
-                </div>  
-              </div>
-           <div class='post-comments-section'>
-    <% feeling.comments.includes(:user).each do |comment| %>
-      <div class="post-comments">
-        <p><%= comment.user.name %> </p>
-        <p><%= comment.body %></p>
-      </div>
-    <% end %>
+                  <div class="d-flex my-3">
+                  <%= image_tag feeling.user.avatar, class: 'user-image' %>
+                    <div class="ml-3">
+                        <h3><%=link_to feeling.user.full_name,  user_path(feeling.user.id), class: 'user-name' %></h3>
+                        <p class="ml-3"><%= feeling.body %></p>
+                    </div>  
+                  </div>
+              <div class='feeling-comments-section'>
+                <% feeling.comments.includes(:user).each do |comment| %>
+                    <div class="post-comments">
+                      <p class="user-handle ">@<%= comment.user.name %> </p>
+                      <p><%= comment.body %></p>
+                    </div>
+                <% end %>
 
-    <%= form_for(:comment, url: comments_path(feeling_id: feeling.id, user_id: current_user.id)) do |form| %>
-      <%= form.text_field :body, placeholder: 'Add new Comment' %>
-      <%= form.submit 'Comment', class: 'btn btn-secondary' %>
-    <% end %>
-  </div>       <%end%>
-              <div>
+            <%= form_for(:comment, url: comments_path(feeling_id: feeling.id, user_id: current_user.id)) do |form| %>
+                  <%= form.text_field :body, placeholder: 'Add your thoughts', class:'comment-text' %>
+                  <%= form.submit 'Comment', class: 'comment-btn' %>
+            <% end %>
+              </div>     
+        <%end%>
+              
 </div>
             </div>
         </div>
