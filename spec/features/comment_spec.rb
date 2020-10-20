@@ -11,11 +11,11 @@ RSpec.describe 'A user can be able to post a feeling', type: :feature do
 
   it 'post a new feeling' do
     visit access_dashboard_path
-    within('Body') do
-      fill_in 'Post a feeling', with: 'Today is a beautiful day'
+    within('.new-feeling') do
+      fill_in 'feeling[body]', with: 'Today is a beautiful day'
     end
     click_button 'Post'
     expect(current_path).to eq(access_dashboard_path)
-    expect(page).to have_content('This is a post one')
+    expect(page).to have_content('Today is a beautiful day')
   end
 end
