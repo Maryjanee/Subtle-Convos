@@ -14,11 +14,11 @@
             <p><%= current_user.following.count %> Following </p>
         </div>
         <nav>
-            <div class="nav-link active">
+            <div class="nav-link">
                 <%= image_tag("home.svg", style:"width: 20px; " ) %> 
                 <%= link_to "Home", access_dashboard_path %>
             </div>
-            <div class="nav-link"><%= image_tag("user-profile.svg", style:"width: 20px;") %> <%= link_to "Profile", user_path(current_user) %></div>
+            <div class="nav-link active "><%= image_tag("user-profile.svg", style:"width: 20px;") %> <%= link_to "Profile", user_path(current_user) %></div>
             <div class="nav-link"> <%= image_tag("logout.svg", style:"width: 20px;") %><%= link_to "Logout", access_logout_path %></div> 
         </nav>
       
