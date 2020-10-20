@@ -36,6 +36,20 @@ body {
   background: $background_grey;
   font-family: $font-stack;
 }
+.at-name{
+  color:$line-grey;
+  font-weight:400;
+}
+
+.dark_blue{
+  color:$dark_blue;
+  font-weight:700;
+}
+
+.line-grey{
+  color:$line-grey;
+  font-weight:400;
+}
 
 .rounded {
   background: #ffc0c0;
@@ -70,7 +84,8 @@ body {
 
   p {
     border: 1px solid #00111a;
-    padding: 1rem 2rem;
+    width:50%;
+    padding:1rem 1.5rem;
     color: $white;
     display: flex;
     flex-direction: column;
@@ -87,7 +102,8 @@ body {
 
 .single-user {
   width: 80%;
-  margin: 2rem auto;
+  margin: 2rem 6rem;
+  text-align:center;
 
   p.mt-4 {
     color: $blue;
@@ -143,7 +159,26 @@ body {
   z-index: 100;
   left: 17.7rem;
   top: 0;
+  right:0;
   padding: $padding-sm;
+}
+
+.users-list{
+  width:100%;
+  img{
+    width:15%;
+    height:60%;
+    border-radius:50%;
+  }
+  .d-flex {
+    justify-content:center;
+    div{
+    width:60%;
+    p{
+      font-size:.8rem;
+    }
+  }
+ }
 }
 
 .notice,
@@ -213,17 +248,22 @@ body {
   padding: 0.5rem;
   width: 10rem;
   background: $blue;
+  position: absolute;
+  bottom: 1rem;
+  right:1.5rem;
   border: 0;
   border-radius: 0.3rem;
 }
 
+
 .page-content {
   position: absolute;
   top: 5rem;
-  left: 18.3rem;
+  left: 20%;
   height: 80%;
-  width: 79.5%;
+  width: 80%;
   display: flex;
+  padding:1rem 1.5rem;
 }
 
 .content-title {
@@ -235,19 +275,23 @@ body {
 }
 
 .middle-pane {
-  width: 65%;
+  width: 60%;
 }
 
 .form-wrapper {
+  position: relative;
+
   background: $white;
   margin: 1rem;
-  padding: 1rem 1.5rem;
+  padding: 2rem 2rem 4rem;
   border-radius: 0.5rem;
 }
 
 .third-pane {
-  width: 35%;
-  height: 100%;
+  width: 40%;
+  height: 70rem;
+  border-left:1px solid $line-grey;
+  
 }
 
 nav {
@@ -255,7 +299,7 @@ nav {
 }
 
 .user-name {
-  color: #00264d;
+ color:$dark_blue;
   font-size: 0.9rem;
   font-weight: 700;
 }
@@ -298,7 +342,6 @@ nav {
   p a {
     display: inline-block;
     margin-left: 0;
-    color: $line-grey;
   }
 }
 
@@ -345,4 +388,13 @@ nav {
       font-size: 0.8rem;
     }
   }
+}
+
+.cover{
+  width:70%;
+}
+
+.show{
+  width:35%;
+  padding: 0 2rem;
 }

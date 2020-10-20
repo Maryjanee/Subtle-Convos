@@ -45,7 +45,7 @@
         
       
         <div class="form-wrapper">
-            <h4 class= "text-primary text-uppercase my-4">Newly Posted Feelings</h4>
+            <h4 class= "text-primary text-uppercase">Newly Posted Feelings</h4>
             <div class="user-posts mb-2" >
               <% @all_feelings.each do |feeling| %>
                   <div class="d-flex my-3">
@@ -90,14 +90,14 @@
             <% else %>
                 <%= image_tag("home.svg", class: 'user-image') %>
             <% end %>
-            <div class="ml-3 ">
+            <div class="ml-4 ">
                 <h3>
-                  <%= link_to user.full_name, user_path(user.id), class: 'user-name' %>
+                  <%= link_to user.full_name, user_path(user.id), class: 'user-name text-uppercase' %>
                 </h3>
               <% if user.following.ids.empty? %>
                 <p class= "ml-3">No Followers</p>
               <% else %>
-              <p class="ml-3"> Followed by <%=link_to first_user_name(user),  user_path(first_user_id(user)),  class: 'user-name inline' %> </p>
+              <p class="ml-3"> Followed by <%=link_to first_user_name(user),  user_path(first_user_id(user)),  class: ' inline line-grey' %> </p>
               <% end %>
             </div>
             <% end %>
