@@ -45,7 +45,7 @@
         
       
         <div class="form-wrapper">
-            <h4 class= "text-primary text-uppercase my-4">4 Newly Posted Feelings</h4>
+            <h4 class= "text-primary text-uppercase my-4">Newly Posted Feelings</h4>
             <div class="user-posts mb-2" >
               <% @all_feelings.each do |feeling| %>
                   <div class="d-flex my-3">
@@ -64,7 +64,7 @@
                 <% end %>
 
             <%= form_for(:comment, url: comments_path(feeling_id: feeling.id, user_id: current_user.id)) do |form| %>
-                  <%= form.text_field :body, placeholder: 'Add your thoughts', class:'comment-text' %>
+                  <%= form.text_field :body, placeholder: 'Add new Comment', class:'comment-text' %>
                   <%= form.submit 'Comment', class: 'comment-btn' %>
             <% end %>
               </div>     

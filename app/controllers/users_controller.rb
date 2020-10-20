@@ -14,9 +14,11 @@ class UsersController < ApplicationController
 
     if @user.save
       @user.avatar.attach(params[:user][:avatar])
-      redirect_to access_dashboard_path
+      redirect_to access_login_path
+      flash.now[:alert] = 'Your account has been created '
+
     else
-      flash.now[:alert] = 'User creation unsuccessful.'
+      flash.now[:alert] = 'An Error has occured ,please try again'
     end
   end
 

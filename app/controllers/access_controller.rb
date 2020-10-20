@@ -3,7 +3,7 @@ class AccessController < ApplicationController
 
   before_action :confirm_logged_in, except: %i[login create]
   def dashboard
-    @all_users = User.all.includes([:avatar_attachment, :following])
+    @all_users = User.all.includes([:avatar_attachment])
     @all_feelings = Feeling.all.includes([:user]).limit(4).order(created_at: :desc)
     @feeling = Feeling.new
   end
@@ -47,6 +47,4 @@ class AccessController < ApplicationController
     end
     arr
   end
-  
-  
 end
