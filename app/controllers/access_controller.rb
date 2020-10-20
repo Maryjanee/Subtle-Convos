@@ -18,7 +18,7 @@ class AccessController < ApplicationController
       redirect_to admin_path
 
     else
-      flash[:alert] = 'Username not found, please try again'
+      flash[:notice] = 'Username not found, please try again'
       redirect_to access_path
     end
   end

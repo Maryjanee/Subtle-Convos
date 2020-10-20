@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :feelings, dependent: :destroy
   validates :name, presence: true, uniqueness: true
+  validates :full_name, presence: true
 
   has_many :relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
   has_many :following, through: :relationships, source: :followed
