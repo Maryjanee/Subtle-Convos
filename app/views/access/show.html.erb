@@ -5,7 +5,7 @@
             <% if current_user.avatar.attached? %>
             <img src="<%=url_for(current_user.avatar)%>" class="user-image"/> 
             <% else %>
-                <%= image_tag("home.svg", class: 'user-image' ) %> 
+                <%= image_tag("egg_avatar.png", class: 'user-image' ) %> 
             <% end %>
             <p class="current-user"><%= current_user.full_name.upcase() %></p>
         </div>

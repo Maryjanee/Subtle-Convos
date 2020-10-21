@@ -1,6 +1,6 @@
 # Subtle Convos  
 
-> This application was built as a platform for users to communicate with other users about the current state of their minds, communcating thoughts, feelings and ideas whilst getting feedback from other users.
+> This application was built as a platform for users to communicate with other users about their thoughts, feelings and ideas whilst getting feedback from other users.
 It mimics twitter's functionalities where users can sign up and connect with other users.
 
 The major functionalies of this application are as follows:
@@ -16,7 +16,8 @@ The major functionalies of this application are as follows:
 
 
 
-![A screenshot of the the posts page]
+![dashboard page](dashboard-page.png)
+![User page](user-profile.png)
 
 ## Built With
 
@@ -31,7 +32,7 @@ The major functionalies of this application are as follows:
 
 ## Live Demo
 
-[Live Demo Link ] 
+[Live Demo Link ] (https://warm-ravine-81710.herokuapp.com/users/sign_in)
 
 ### Prerequisites
 
@@ -46,7 +47,7 @@ The major functionalies of this application are as follows:
 ```
 git clone git@github.com:Maryjanee/Subtle-convos.git
 ```
-2. Run `cd Stay-In-Touch` to move inside the downloaded repository.
+2. Run `cd Subtle-convos` to move inside the downloaded repository.
 3. Run `bundle install` and `Yarn install` seperately to download the project's dependencies.
 4. Run `yarn check --integrity` to verify that the package dependencies have not been altered.
 4. Run `rails db:setup` and `rails db:migrate` to set up your local database.
