@@ -10,7 +10,7 @@ class FeelingsController < ApplicationController
 
     if @feeling.save
       flash[:notice] = 'Created Successfully'
-      redirect_to user_path(current_user.id)
+      redirect_to access_dashboard_path
     else
       flash[:alert] = 'An Error Occurred, Please try again'
       redirect_to new_feeling_path

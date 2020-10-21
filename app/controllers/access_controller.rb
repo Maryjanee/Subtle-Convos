@@ -1,5 +1,6 @@
 class AccessController < ApplicationController
   include AccessHelper
+  include UsersHelper
 
   before_action :confirm_logged_in, except: %i[login create]
   def dashboard
@@ -28,8 +29,10 @@ class AccessController < ApplicationController
     @all_user_feelings = Feeling.where(user_id: @user.id).includes([:user])
     @followers = followed_users(@user.followers.ids)
     @following = followed_users(@user.following.ids)
-    @feeling = Feeling.new
     @comment = Comment.new
+    @user_feeling = Feeling.new
+    redirect_to user_path(current_user.id) if @user_feeling.save
+   
   end
 
   def logout

@@ -1,6 +1,6 @@
 <div>
-   <%= form_for(@feeling, url: feelings_path) do |f| %>
-   <%= f.label :Post_a_feeling , class:"text-uppercase feeling "%>
+   <%= form_for(@user_feeling, url: feelings_path) do |f| %>
+   <%= f.label :Post_a_feeling , class:"text-uppercase show-feeling "%>
         <%= f.text_field :body, autofocus: true, placeholder: "How do you Feel?" , class: "form-field"%>
         <%= f.submit "Post", :class => "feeling_btn" %>
     <% end %>

@@ -20,6 +20,7 @@ li {
   list-style: none;
 }
 
+
 a,
 .current-user {
   text-decoration: none;
@@ -316,6 +317,8 @@ nav {
 
 .post-comments p{
   font-size:.8rem;
+  display:inline;
+ 
 }
 .post-comments .user-handle {
   margin-left: 5rem;
