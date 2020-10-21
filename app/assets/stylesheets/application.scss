@@ -1,5 +1,6 @@
 @import "bootstrap/scss/bootstrap";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
 $blue: #52a7e8;
 $dark_blue : #213346;
@@ -35,6 +36,11 @@ button {
 body {
   background: $background_grey;
   font-family: $font-stack;
+}
+
+.page-title {
+  color: $white;
+  font-family: 'Dancing Script', cursive;
 }
 
 .at-name {

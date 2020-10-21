@@ -12,7 +12,7 @@ class FeelingsController < ApplicationController
       flash[:notice] = 'Created Successfully'
       redirect_to access_dashboard_path
     else
-      flash[:alert] = 'An Error Occurred, Please try again'
+      flash[:notice] = 'An Error Occurred, Please try again'
       redirect_to new_feeling_path
     end
   end

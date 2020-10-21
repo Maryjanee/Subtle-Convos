@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     if @user.save
       @user.avatar.attach(params[:user][:avatar])
       @user.cover_image.attach(params[:user][:cover_image])
-      flash.now[:alert] = 'Your account has been created '
+      flash.now[:notice] = 'Your account has been created '
       session[:user_id] = @user.id
       redirect_to access_dashboard_path
 
