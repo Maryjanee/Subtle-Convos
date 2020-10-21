@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: subtle_convos_production
-  username: subtle_convos
-  password: <%= ENV['SUBTLE_CONVOS_DATABASE_PASSWORD'] %>
+  # database: subtle_convos_production
+  # username: subtle_convos
+  # password: <%= ENV['SUBTLE_CONVOS_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
