@@ -30,6 +30,7 @@ class AccessController < ApplicationController
     @followers = followed_users(@user.followers.ids)
     @following = followed_users(@user.following.ids)
     @comment = Comment.new
+    @feeling = Comment.new
     @user_feeling = Feeling.new
     redirect_to user_path(current_user.id) if @user_feeling.save
   end
