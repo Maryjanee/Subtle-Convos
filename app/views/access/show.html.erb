@@ -73,8 +73,8 @@
       <img src="<%=url_for(@user.avatar,)%>" class="single-user-img"/> 
          <% end %>
            </div>
-      <p class="mt-4 dark_blue"><%=@user.full_name.upcase()%></p>
-      <p class="ml-3">@<%=@user.name%></p>
+      <p class="mt-2 mb-0 dark_blue"><%=@user.full_name.upcase()%></p>
+      <p>@<%=@user.name%></p>
       </div>
 </div>
       <div class="d-flex user-stats">
@@ -84,20 +84,22 @@
       </div>
 
 
-        <% if @user.following.blank? %>
+        <% if @followers.blank? %>
           <p>No Followers</p>
         <%else %>
           <% @followers.each do |user| %>
           <div class="d-flex mt-3 followed">
              <div class="d-flex">
+                <% if user.avatar.attached? %>
                   <img src="<%=url_for(user.avatar)%>" class="user-image"/> 
+                  <% end %>
                   <div class="user-details">
                   <p><%=link_to user.full_name,  user_path(user.id), class: 'dark_blue' %></p>
                   <p>@<%=link_to user.name,  user_path(user.id), class: 'at-name' %></p>
                   </div>
               </div>
               <% if who_not_to_follow.exclude?(user.id) %>
-                  <%= button_to relationships_path(followed_id: @user.id), class: "mt-4 mr-4" do  %>
+                  <%= button_to relationships_path(followed_id: user.id), class: "mt-4 mr-4" do  %>
                   <%= image_tag("plus.svg", class: 'rounded-circle' ) %> 
               <% end %>
         

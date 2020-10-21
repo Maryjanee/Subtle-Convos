@@ -32,7 +32,7 @@ class AccessController < ApplicationController
     @comment = Comment.new
     @feeling = Comment.new
     @user_feeling = Feeling.new
-    redirect_to user_path(current_user.id) if @user_feeling.save
+    redirect_to user_path(user.id) if @user_feeling.save
   end
 
   def logout
