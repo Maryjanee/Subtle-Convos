@@ -45,6 +45,7 @@ body {
 .dark_blue {
   color: $dark_blue;
   font-weight: 700;
+  font-size: 0.9rem;
 }
 
 .line-grey {
@@ -164,36 +165,20 @@ body {
   padding: $padding-sm;
 }
 
-.single-user-info {
-  div {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    overflow: hidden;
-    border-radius: 50%;
-
-    img {
-      width: 100%;
-      height: auto;
-    }
-  }
+.single-user-info div {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
 }
-
-.user-details {
-  p {
-    margin-bottom: 0;
-    margin-left: 3rem;
-  }
-
-  p a {
-    display: inline-block;
-    margin-left: 0;
-  }
-}
-
 
 .users-list {
   width: 100%;
+
+  p {
+    font-size: 0.8rem;
+  }
 
   img {
     width: 15%;
@@ -206,12 +191,13 @@ body {
 
     div {
       width: 60%;
-
-      p {
-        font-size: 0.8rem;
-      }
     }
   }
+}
+
+.single-user-info img {
+  width: 100%;
+  height: auto;
 }
 
 .notice,
@@ -328,6 +314,13 @@ nav {
   margin-top: 1rem;
 }
 
+.post-comments p{
+  font-size:.8rem;
+}
+.post-comments .user-handle {
+  margin-left: 5rem;
+}
+
 .user-name {
   color: $dark_blue;
   font-size: 0.9rem;
@@ -348,7 +341,17 @@ nav {
   border-top: 1px solid $line-grey;
 }
 
+.user-details {
+  p {
+    margin-bottom: 0;
+    margin-left: 3rem;
+  }
 
+  p a {
+    display: inline-block;
+    margin-left: 0;
+  }
+}
 
 .followed {
   justify-content: space-between;
@@ -358,19 +361,6 @@ nav {
     margin-top: 0;
     margin-bottom: 2rem;
     border: 0;
-  }
-}
-
-.post-comments {
-  p {
-    display: inline-block;
-    font-size: 0.8rem;
-    text-align: right;
-    margin-top: 0;
-  }
-
-  .user-handle {
-    margin-left: 5rem;
   }
 }
 
@@ -400,6 +390,5 @@ nav {
 }
 
 .show {
-  width: 35%;
-  padding: 0 2rem;
+  width: 40%;
 }

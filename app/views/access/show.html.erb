@@ -56,10 +56,9 @@
   </div>
       
 
-      <div class="third-pane show ">
+      <div class="third-pane show ml-3 pl-3">
        <div class="d-flex single-user">
         <% if who_not_to_follow.exclude?(@user.id) %>
-           
               <%= button_to relationships_path(followed_id: @user.id), class: "mt-4 mr-4" do  %>
                   <%= image_tag("plus.svg", class: 'rounded-circle' ) %> 
               <% end %>
@@ -87,7 +86,7 @@
           <% @followers.each do |user| %>
           <div class="d-flex mt-3 followed">
              <div class="d-flex">
-                  <img src="<%=url_for(user.avatar,)%>" class="user-image"/> 
+                  <img src="<%=url_for(user.avatar)%>" class="user-image"/> 
                   <div class="user-details">
                   <p><%=link_to user.full_name,  user_path(user.id), class: 'dark_blue' %></p>
                   <p>@<%=link_to user.name,  user_path(user.id), class: 'at-name' %></p>

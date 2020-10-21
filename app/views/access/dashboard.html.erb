@@ -36,7 +36,7 @@
   </section>
    
    <section class="page-content">
-        <div class="middle-pane">
+        <div class="middle-pane pr-5">
           <h3 class= "content-title ">All conversations</h3>
           <div class="form-wrapper">
               <h3 class="text-uppercase">Post a feeling</h3>
@@ -78,10 +78,10 @@
       </div>
       
 
-  <div class="third-pane ">
+  <div class="third-pane  ">
     <h3 class= "content-title">Who to follow</h3>
 
-    <div class="users-list px-4 my-2">
+    <div class="users-list  my-2">
         <% @all_users.each do |user| %>
         <div class="d-flex my-3">
             <% if who_not_to_follow.exclude?(user.id) %>
