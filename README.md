@@ -31,7 +31,7 @@ The major functionalies of this application are as follows:
 
 ## Live Demo
 
-[Live Demo Link ](https://warm-ravine-81710.herokuapp.com/users/sign_in)
+[Live Demo Link ](https://pacific-forest-15891.herokuapp.com/)
 
 ### Prerequisites
 
