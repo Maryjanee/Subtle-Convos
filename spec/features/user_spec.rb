@@ -38,11 +38,10 @@ end
 RSpec.feature 'Users', type: :feature do
   describe 'New User Sign Up' do
     it 'creates a new user' do
-      visit access_login_path
-      visit new_user_path
-      within('form') do
-        fill_in 'user[name]', with: 'John'
-        fill_in 'user[full_name]', with: 'John Doe'
+      visit root_path
+      find('.form-content') do
+      fill_in 'user[name]', with: 'John'
+      fill_in 'user[full_name]', with: 'John Doe'
       end
       expect { click_button 'Sign Up' }.to change(User, :count).by(1)
     end

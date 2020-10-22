@@ -14,7 +14,7 @@
         <% if current_user.avatar.attached? %>
         <img src="<%=url_for(current_user.avatar)%>" class="user-image ml-4 mt-2"/>
         <% else %>
-           <%= image_tag("egg_avatar", class: 'user-image ml-4 mt-2' ) %>
+           <%= image_tag("egg-avatar.jpg", class: 'user-image ml-4 mt-2' ) %>
         <% end %>
       <p class="current-user mt-3 ml-4"><%= current_user.full_name.upcase() %></p>
     </div>
@@ -87,7 +87,7 @@
                 <% if user.avatar.attached? %>
                 <img src="<%=url_for(user.avatar)%>" class="user-image"/> 
             <% else %>
-                <%= image_tag("egg-avatar.png", class: 'user-image') %>
+                <%= image_tag("egg-avatar.jpg", class: 'user-image') %>
             <% end %>
             <div class="ml-4 ">
                 <h3>
