@@ -6,7 +6,8 @@ class AccessController < ApplicationController
   
   def dashboard
     @all_users = User.all.includes([:avatar_attachment])
-    @all_feelings = Feeling.all.includes([:user]).limit(4).order(created_at: :desc)
+    @all_feelings = Feeling.all.includes([:user, :comments]).limit(4).order(created_at: :desc)
+    
     @feeling = Feeling.new
   end
 
