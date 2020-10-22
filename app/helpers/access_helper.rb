@@ -1,4 +1,5 @@
 module AccessHelper
+ 
   def who_not_to_follow
     current_user.following.ids << current_user.id
   end

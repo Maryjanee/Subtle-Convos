@@ -15,12 +15,12 @@ class UsersController < ApplicationController
     if @user.save
       @user.avatar.attach(params[:user][:avatar])
       @user.cover_image.attach(params[:user][:cover_image])
-      flash.now[:notice] = 'Your account has been created '
+      flash[:notice] = 'Your account has been created '
       session[:user_id] = @user.id
       redirect_to access_dashboard_path
 
     else
-      flash.now[:alert] = 'An Error has occured ,please try again'
+      flash[:alert] = 'An Error has occured ,please try again'
     end
   end
 

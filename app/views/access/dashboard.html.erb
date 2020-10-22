@@ -1,8 +1,3 @@
-  <% if !flash[:notice].blank?%>
-    <div class="notice">
-    <%=flash[:notice]%>
-    </div>
-  <% end %>
   
  <div class="top-banner">
     <h1 class="page-title">Subtle Convos</h1>
@@ -11,11 +6,7 @@
   <section class="left-pane">
   
     <div class = "user-info d-flex ">
-        <% if current_user.avatar.attached? %>
-        <img src="<%=url_for(current_user.avatar)%>" class="user-image ml-4 mt-2"/>
-        <% else %>
-           <%= image_tag("egg-avatar.jpg", class: 'user-image ml-4 mt-2' ) %>
-        <% end %>
+        <%= user_avatar(current_user, 'user-image ml-4 mt-2', 'egg-avatar.jpg')%>
       <p class="current-user mt-3 ml-4"><%= current_user.full_name.upcase() %></p>
     </div>
     
@@ -42,15 +33,13 @@
               <%= render 'form' %>
         </div>
         
-      
+
         <div class="form-wrapper">
             <h4 class= "text-primary text-uppercase">Newly Posted Feelings</h4>
             <div class="user-posts mb-2" >
               <% @all_feelings.each do |feeling| %>
                   <div class="d-flex mt-4">
-                  <% if feeling.user.avatar.attached? %>
-                  <img src="<%=url_for(feeling.user.avatar)%>" class="user-image"/>
-                  <% end %>
+                  <%= user_avatar(feeling.user,"user-image", 'egg-avatar.jpg' )%>
                     <div class="ml-3">
                         <h3><%=link_to feeling.user.full_name,  user_path(feeling.user.id), class: 'user-name' %></h3>
                         <p class="ml-3"><%= feeling.body %></p>
@@ -82,28 +71,19 @@
 
     <div class="users-list  my-2">
         <% @all_users.each do |user| %>
-        <div class="d-flex my-3">
-            <% if who_not_to_follow.exclude?(user.id) %>
-                <% if user.avatar.attached? %>
-                <img src="<%=url_for(user.avatar)%>" class="user-image"/> 
-            <% else %>
-                <%= image_tag("egg-avatar.jpg", class: 'user-image') %>
-            <% end %>
-            <div class="ml-4 ">
-                <h3>
-                  <%= link_to user.full_name, user_path(user.id), class: 'user-name text-uppercase' %>
-                </h3>
-              <% if user.following.ids.empty? %>
-                <p class= "ml-3">No Followers</p>
-              <% else %>
-              <p class="ml-3"> Followed by <%=link_to first_user_name(user),  user_path(first_user_id(user)),  class: ' inline line-grey' %> </p>
-              <% end %>
-            </div>
-            <% end %>
-        </div>
+       <%= content_tag(:div , class:"d-flex my-3") do %>
+           <%if who_not_to_follow.exclude?(user.id)%>
+           <%=user_avatar(user, 'user-image', 'egg-avatar.jpg')%>
+          <%=content_tag(:div, class:"ml-4 ") do%>
+           <%= content_tag(:h3) do%>
+            <%= link_to user.full_name, user_path(user.id), class: 'user-name text-uppercase'%>
+           <% end%>
+         <%= followers_display(user)%>
+       <% end%>
+        <% end%>
+      <% end%>
       <% end %>
     </div>
   </div>
 
 </section>
-

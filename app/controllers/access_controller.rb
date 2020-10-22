@@ -3,6 +3,7 @@ class AccessController < ApplicationController
   include UsersHelper
 
   before_action :confirm_logged_in, except: %i[login create]
+  
   def dashboard
     @all_users = User.all.includes([:avatar_attachment])
     @all_feelings = Feeling.all.includes([:user]).limit(4).order(created_at: :desc)
@@ -17,7 +18,7 @@ class AccessController < ApplicationController
       session[:user_id] = user.id
       flash[:notice] = 'You are in'
       redirect_to admin_path
-
+      
     else
       flash[:notice] = 'Username not found, please try again'
       redirect_to access_path

@@ -2,11 +2,7 @@
 <div class="container">
     <section class="left-pane">
         <div class = "user-info d-flex pl-1 py-1">
-            <% if current_user.avatar.attached? %>
-            <img src="<%=url_for(current_user.avatar)%>" class="user-image"/> 
-            <% else %>
-                <%= image_tag("egg_avatar.png", class: 'user-image' ) %> 
-            <% end %>
+            <%= user_avatar(current_user, 'user-image', "egg_avatar.jpg" )%>
             <p class="current-user"><%= current_user.full_name.upcase() %></p>
         </div>
         <div class="relationship-count d-flex">
@@ -28,24 +24,18 @@
         </div>
     <section class="page-content">
       <div class="middle-pane cover">
-        <div>
-            <% if @user.cover_image.attached? %>
-            <img src="<%=url_for(@user.cover_image,)%>" class="cover-image"/> 
-            <% else %>
-                <%= image_tag("cover-3.jpg", class: 'cover-image' ) %>   
-            <% end %>
+         <div>
+            <%= cover_image(@user, "cover-image",'cover-image' )%>
           </div>
           <div class="form-wrapper">
-              <%= render 'form' %>
+              <%= render 'showform' %>
         
       </div>
         <div class="form-wrapper mt-5 ">
         <h5>Conversations from from <%= @user.full_name%> </h5>
             <% @all_user_feelings.each do |content| %>
               <div class="user-posts d-flex mt-4">
-              <% if content.user.cover_image.attached?%>
-                  <img src="<%=url_for(content.user.cover_image,)%>" class='user-image mt-3'/> 
-                  <% end %>
+                  <%= cover_image(content.user, 'user-image mt-3')%>
                 <div class="ml-3 mt-3">
                   <h3><%=link_to content.user.full_name,  user_path(content.user.id), class: 'user-name' %></h3>
                     <p class="ml-3"><%= content.body %></p>
@@ -59,18 +49,11 @@
 
       <div class="third-pane show ml-3 pl-3">
        <div class="d-flex single-user">
-        <% if who_not_to_follow.exclude?(@user.id) %>
-              <%= button_to relationships_path(followed_id: @user.id), class: "mt-4 mr-4" do  %>
-                  <%= image_tag("plus.svg", class: 'rounded-circle' ) %> 
-              <% end %>
-        
-        <% end %>
+            <%= button_display(@user) %>
 
       <div class="single-user-info">
-        <div>
-         <% if @user.cover_image.attached?%>
-      <img src="<%=url_for(@user.avatar,)%>" class="single-user-img"/> 
-         <% end %>
+            <div>
+             <%= user_avatar(@user,"single-user-img", "egg-avatar.jpg" )%>
            </div>
       <p class="mt-2 mb-0 dark_blue"><%=@user.full_name.upcase()%></p>
       <p>@<%=@user.name%></p>
@@ -81,31 +64,20 @@
           <p class="text-center dark_blue text-uppercase"><%=@user.following.count %><br/>Following </p>
           <p class="text-center dark_blue text-uppercase"><%=@user.followers.count %><br/> Followers</p>
       </div>
-
-
-        <% if @followers.blank? %>
-          <p>No Followers</p>
-        <%else %>
+      
+       <%=single_user_followers(@followers)%>
           <% @followers.each do |user| %>
           <div class="d-flex mt-3 followed">
              <div class="d-flex">
-                <% if user.avatar.attached? %>
-                  <img src="<%=url_for(user.avatar)%>" class="user-image"/> 
-                  <% end %>
+                  <%=user_avatar(user, "user-image", "egg-avatar.jpg" )%>
                   <div class="user-details">
                   <p><%=link_to user.full_name,  user_path(user.id), class: 'dark_blue' %></p>
                   <p>@<%=link_to user.name,  user_path(user.id), class: 'at-name' %></p>
                   </div>
               </div>
-              <% if who_not_to_follow.exclude?(user.id) %>
-                  <%= button_to relationships_path(followed_id: user.id), class: "mt-4 mr-4" do  %>
-                  <%= image_tag("plus.svg", class: 'rounded-circle' ) %> 
-              <% end %>
-        
-              <% end %>
+              <%= button_display(user)%>
               </div>
           <% end %>
-        <%end%>
 
       </div>
 
