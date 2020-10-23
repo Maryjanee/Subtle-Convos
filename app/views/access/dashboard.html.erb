@@ -48,7 +48,7 @@
               <div class='feeling-comments-section'>
                      <%feeling.comments.each do |comment|%>
                     <div class="post-comments py-1">
-                      <p class="user-handle mr-2 ">@<%= User.find(comment.author_id).username %></p>
+                      <p class="user-handle mr-2 ">@<%= author_name(comment)%></p>
                       <p><%= comment.body %></p>
                     </div>
                 <% end %>

@@ -12,7 +12,8 @@ module AccessHelper
     User.find(user.following.ids[0]).id
   end
   
-  def comments_authors
-    
+  def author_name(comment)
+    User.find(comment.author_id).username 
   end
+  
 end
