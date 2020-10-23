@@ -1,0 +1,402 @@
+@import "bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+$blue: #52a7e8;
+$dark_blue : #213346;
+$background_grey : #f5f6f8;
+$padding-sm : 1rem;
+$white :#fff;
+$line-grey: #b3b3b3;
+$title-grey :#999;
+$font-stack :'Poppins', sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+.current-user {
+  text-decoration: none;
+  display: block;
+  color: $white;
+  margin-left: 1rem;
+}
+
+button {
+  border: 0;
+}
+
+body {
+  background: $background_grey;
+  font-family: $font-stack;
+}
+
+.page-title {
+  color: $white;
+  font-family: 'Dancing Script', cursive;
+}
+
+.at-name {
+  color: $line-grey;
+  font-weight: 400;
+}
+
+.dark_blue {
+  color: $dark_blue;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.line-grey {
+  color: $line-grey;
+  font-weight: 400;
+}
+
+.rounded {
+  background: #ffc0c0;
+  padding: 30px;
+  border-radius: 50%;
+  width: 2rem;
+}
+
+.rounded-circle {
+  border: 2px solid $line-grey;
+  width: 40px;
+  padding: 0.6rem;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    border: 0;
+  }
+}
+
+.user-info {
+  align-items: center;
+  height: 100px;
+}
+
+.active {
+  background: #57a8e5;
+}
+
+.relationship-count {
+  width: 100%;
+
+  p {
+    border: 1px solid #00111a;
+    width: 50%;
+    padding: 1rem 1.5rem;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.nav-link {
+  display: flex;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.single-user {
+  width: 80%;
+  margin: 2rem 6rem;
+  text-align: center;
+
+  p.mt-4 {
+    color: $blue;
+    font-size: 1.1rem;
+  }
+
+  p.mb-3 {
+    color: $line-grey;
+  }
+}
+
+.user-stats {
+  width: 100%;
+  margin-top: 0;
+
+  p {
+    border: 1px solid $line-grey;
+    padding: 1rem 1.5rem;
+    width: 35%;
+  }
+}
+
+.single-user-image {
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.links {
+  color: $blue;
+}
+
+.left-pane {
+  background: $dark_blue;
+  height: 100vh;
+  width: 20%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.top-banner {
+  background: $blue;
+  width: 80%;
+  height: 5rem;
+  position: fixed;
+  z-index: 100;
+  left: 17.7rem;
+  top: 0;
+  right: 0;
+  padding: $padding-sm;
+}
+
+.single-user-info div {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.users-list {
+  width: 100%;
+
+  p {
+    font-size: 0.8rem;
+  }
+
+  img {
+    width: 15%;
+    height: 60%;
+    border-radius: 50%;
+  }
+
+  .d-flex {
+    justify-content: center;
+
+    div {
+      width: 60%;
+    }
+  }
+}
+
+.single-user-info img {
+  width: 100%;
+  height: auto;
+}
+
+.notice,
+.alert {
+  background: green;
+  width: 30%;
+  border-radius: 0.2rem;
+  color: $white;
+  padding: 1rem 2rem;
+  position: absolute;
+  right: 0;
+  top: 6rem;
+}
+
+.nav-icons {
+  width: 20px;
+}
+
+.alert {
+  background: red;
+}
+
+.form-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+
+.form-field {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 1px solid $line-grey;
+  border-radius: 0.5rem;
+  margin: 0.5rem 0;
+}
+
+.user_name {
+  width: 30rem;
+  border-radius: 0.2rem;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid $blue;
+  margin: 0.3rem 0;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.submit_btn {
+  padding: 1rem 1.5rem;
+  width: 30rem;
+  color: $white;
+  background: $blue;
+  border: 0;
+  border-radius: 0.2rem;
+  font-size: 1rem;
+}
+
+.feeling_btn {
+  margin-left: 31rem;
+  padding: 0.5rem;
+  width: 10rem;
+  background: $blue;
+  position: absolute;
+  bottom: 1rem;
+  right: 1.5rem;
+  border: 0;
+  border-radius: 0.3rem;
+}
+
+.page-content {
+  position: absolute;
+  top: 5rem;
+  left: 20%;
+  height: 80%;
+  width: 80%;
+  display: flex;
+  padding: 1rem 1.5rem;
+}
+
+.content-title {
+  text-transform: uppercase;
+  color: $title-grey;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid $line-grey;
+}
+
+.middle-pane {
+  width: 60%;
+}
+
+.form-wrapper {
+  position: relative;
+  background: $white;
+  margin: 1rem;
+  padding: 2rem 2rem 4rem;
+  border-radius: 0.5rem;
+}
+
+.third-pane {
+  width: 40%;
+  height: 70rem;
+  border-left: 1px solid $line-grey;
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+.post-comments p {
+  font-size: 0.8rem;
+  display: inline;
+}
+
+.post-comments .user-handle {
+  margin-left: 5rem;
+}
+
+.user-name {
+  color: $dark_blue;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.user-image {
+  width: 50px;
+  height: 50px;
+}
+
+.cover-image {
+  width: 100%;
+  height: 13rem;
+}
+
+.user-posts {
+  border-top: 1px solid $line-grey;
+}
+
+.user-details {
+  p {
+    margin-bottom: 0;
+    margin-left: 3rem;
+  }
+
+  p a {
+    display: inline-block;
+    margin-left: 0;
+  }
+}
+
+.followed {
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    border: 0;
+  }
+}
+
+.feeling-comments-section {
+  form {
+    margin-left: 5rem;
+    width: 100%;
+
+    .comment-text {
+      padding: 0.6rem;
+      width: 70%;
+      font-size: 0.8rem;
+    }
+
+    .comment-btn {
+      padding: 0.6rem;
+      background: $blue;
+      border: 0;
+      border-radius: 0.3rem;
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.cover {
+  width: 70%;
+}
+
+.show {
+  width: 40%;
+}

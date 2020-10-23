@@ -1,0 +1,88 @@
+
+<div class="container">
+    <section class="left-pane">
+        <div class = "user-info d-flex pl-1 py-1">
+            <%= user_avatar(current_user, 'user-image', "egg_avatar.jpg" )%>
+            <p class="current-user"><%= current_user.full_name.upcase() %></p>
+        </div>
+        <div class="relationship-count d-flex">
+            <p><%= current_user.followers.count %> <br/> Followers </p>
+            <p><%= current_user.following.count %> <br/> Following </p>
+        </div>
+        <nav>
+            <div class="nav-link">
+                <%= image_tag("home.svg", style:"width: 20px; " ) %> 
+                <%= link_to "Home", access_dashboard_path %>
+            </div>
+            <div class="nav-link active "><%= image_tag("user-profile.svg", style:"width: 20px;") %> <%= link_to "Profile", user_path(current_user) %></div>
+            <div class="nav-link"> <%= image_tag("logout.svg", style:"width: 20px;") %><%= link_to "Logout", access_logout_path %></div> 
+        </nav>
+      
+      </section>
+        <div class= "top-banner">
+          <h1 class="page-title">Subtle Convos</h1>
+        </div>
+    <section class="page-content">
+      <div class="middle-pane cover">
+         <div>
+            <%= cover_image(@user, "cover-image",'cover-image' )%>
+          </div>
+          <div class="form-wrapper">
+              <%= render 'showform' %>
+        
+      </div>
+        <div class="form-wrapper mt-5 ">
+        <h5>Conversations from from <%= @user.full_name%> </h5>
+            <% @all_user_feelings.each do |content| %>
+              <div class="user-posts d-flex mt-4">
+                  <%= cover_image(content.author, 'user-image mt-3', 'cover-2.jpg')%>
+                <div class="ml-3 mt-3">
+                  <h3><%=link_to content.author.full_name,  user_path(content.author.id), class: 'user-name' %></h3>
+                    <p class="ml-3"><%= content.text %></p>
+                </div>
+              </div>
+           <%end%>
+      </div>
+        
+  </div>
+      
+
+      <div class="third-pane show ml-3 pl-3">
+       <div class="d-flex single-user">
+            <%= button_display(@user) %>
+
+      <div class="single-user-info">
+            <div>
+             <%= user_avatar(@user,"single-user-img", "egg-avatar.jpg" )%>
+           </div>
+      <p class="mt-2 mb-0 dark_blue"><%=@user.full_name.upcase()%></p>
+      <p>@<%=@user.username%></p>
+      </div>
+</div>
+      <div class="d-flex user-stats">
+          <p class="text-center dark_blue text-uppercase"><%=@user.feelings.count %><br/>Convos </p>
+          <p class="text-center dark_blue text-uppercase"><%=@user.following.count %><br/>Following </p>
+          <p class="text-center dark_blue text-uppercase"><%=@user.followers.count %><br/> Followers</p>
+      </div>
+      
+       <%=single_user_followers(@followers)%>
+          <% @followers.each do |user| %>
+          <div class="d-flex mt-3 followed">
+             <div class="d-flex">
+                  <%=user_avatar(user, "user-image", "egg-avatar.jpg" )%>
+                  <div class="user-details">
+                  <p><%=link_to user.full_name,  user_path(user.id), class: 'dark_blue' %></p>
+                  <p>@<%=link_to user.username,  user_path(user.id), class: 'at-name' %></p>
+                  </div>
+              </div>
+              <%= button_display(user)%>
+              </div>
+          <% end %>
+
+      </div>
+
+    </div>
+
+</section>
+
+

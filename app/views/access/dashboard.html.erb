@@ -1,0 +1,90 @@
+  
+ <div class="top-banner">
+    <h1 class="page-title">Subtle Convos</h1>
+ </div>
+  
+  <section class="left-pane">
+  
+    <div class = "user-info d-flex ">
+        <%= user_avatar(current_user, 'user-image ml-4 mt-2', 'egg-avatar.jpg')%>
+      <p class="current-user mt-3 ml-4"><%= current_user.full_name.upcase() %></p>
+    </div>
+    
+      <div class="relationship-count d-flex">
+        <p><%= current_user.followers.count %><br/>  Followers </p>
+        <p><%= current_user.following.count %> <br/> Following </p>
+    </div>
+    
+    <nav>
+      <div class="nav-link active ">
+        <%= image_tag("home.svg",class: 'ml-3  nav-icons' ) %> 
+         <%= link_to "Home", access_dashboard_path %>
+      </div>
+      
+      <div class="nav-link"><%= image_tag("user-profile.svg", class: ' ml-3 nav-icons') %> <%= link_to "Profile", user_path(current_user) %></div>
+      <div class="nav-link"> <%= image_tag("logout.svg", class: ' ml-3 nav-icons') %><%= link_to "Logout", access_logout_path %></div>   
+    </nav>
+  </section>
+   
+   <section class="page-content">
+        <div class="middle-pane pr-5">
+          <h3 class= "content-title ">All conversations</h3>
+          <div class="form-wrapper">
+              <%= render 'form' %>
+        </div>
+        
+
+        <div class="form-wrapper">
+            <h4 class= "text-primary text-uppercase">Newly Posted Feelings</h4>
+            <div class="user-posts mb-2" >
+              <% @all_feelings.each do |feeling| %>
+                  <div class="d-flex mt-4">
+                  <%= user_avatar(feeling.author,"user-image", 'egg-avatar.jpg' )%>
+                    <div class="ml-3">
+                        <h3><%=link_to feeling.author.full_name,  user_path(feeling.author.id), class: 'user-name' %></h3>
+                        <p class="ml-3"><%= feeling.text %></p>
+                    </div>  
+                  </div>
+              <div class='feeling-comments-section'>
+                     <%feeling.comments.each do |comment|%>
+                    <div class="post-comments py-1">
+                      <p class="user-handle mr-2 ">@<%= author_name(comment)%></p>
+                      <p><%= comment.body %></p>
+                    </div>
+                <% end %>
+
+            <%= form_for(:comment,:html => { id: "comments-form" }, url: comments_path(feeling_id: feeling.id, author_id: current_user.id)) do |form| %>
+            <%= form.label :comment, class:"post-comment-form d-none "%>
+                  <%= form.text_field :body, placeholder: 'Add new Comment', class:'comment-text' %>
+                  <%= form.submit 'Comment', class: 'comment-btn' %>
+            <% end %>
+              </div>     
+        <%end%>
+              
+</div>
+            </div>
+        </div>
+      </div>
+      
+
+  <div class="third-pane  ">
+    <h3 class= "content-title">Who to follow</h3>
+
+    <div class="users-list  my-2">
+        <% @all_users.each do |user| %>
+       <%= content_tag(:div , class:"d-flex my-3") do %>
+           <%if who_not_to_follow.exclude?(user.id)%>
+           <%=user_avatar(user, 'user-image', 'egg-avatar.jpg')%>
+          <%=content_tag(:div, class:"ml-4 ") do%>
+           <%= content_tag(:h3) do%>
+            <%= link_to user.full_name, user_path(user.id), class: 'user-name text-uppercase'%>
+           <% end%>
+         <%= followers_display(user)%>
+       <% end%>
+        <% end%>
+      <% end%>
+      <% end %>
+    </div>
+  </div>
+
+</section>
