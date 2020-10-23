@@ -13,10 +13,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      @user.avatar.attach(params[:user][:avatar])
+      @user.photo.attach(params[:user][:photo])
       @user.cover_image.attach(params[:user][:cover_image])
       flash[:notice] = 'Your account has been created '
-      session[:user_id] = @user.id
+      session[:author_id] = @user.id
       redirect_to access_dashboard_path
 
     else
@@ -33,6 +33,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :full_name, :avatar)
+    params.require(:user).permit(:username, :full_name, :photo, :cover_image)
   end
 end

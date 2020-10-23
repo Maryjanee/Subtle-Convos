@@ -39,21 +39,21 @@
             <div class="user-posts mb-2" >
               <% @all_feelings.each do |feeling| %>
                   <div class="d-flex mt-4">
-                  <%= user_avatar(feeling.user,"user-image", 'egg-avatar.jpg' )%>
+                  <%= user_avatar(feeling.author,"user-image", 'egg-avatar.jpg' )%>
                     <div class="ml-3">
-                        <h3><%=link_to feeling.user.full_name,  user_path(feeling.user.id), class: 'user-name' %></h3>
-                        <p class="ml-3"><%= feeling.body %></p>
+                        <h3><%=link_to feeling.author.full_name,  user_path(feeling.author.id), class: 'user-name' %></h3>
+                        <p class="ml-3"><%= feeling.text %></p>
                     </div>  
                   </div>
               <div class='feeling-comments-section'>
-                <% feeling.comments.includes(:user).each do |comment| %>
+                     <%feeling.comments.each do |comment|%>
                     <div class="post-comments py-1">
-                      <p class="user-handle mr-2 ">@<%= comment.user.name %></p>
+                      <p class="user-handle mr-2 ">@<%= User.find(comment.author_id).username %></p>
                       <p><%= comment.body %></p>
                     </div>
                 <% end %>
 
-            <%= form_for(:comment, url: comments_path(feeling_id: feeling.id, user_id: current_user.id)) do |form| %>
+            <%= form_for(:comment, url: comments_path(feeling_id: feeling.id, author_id: current_user.id)) do |form| %>
                   <%= form.text_field :body, placeholder: 'Add new Comment', class:'comment-text' %>
                   <%= form.submit 'Comment', class: 'comment-btn' %>
             <% end %>

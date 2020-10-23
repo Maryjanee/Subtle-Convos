@@ -11,4 +11,8 @@ module AccessHelper
   def first_user_id(user)
     User.find(user.following.ids[0]).id
   end
+  
+  def comments_authors
+    
+  end
 end

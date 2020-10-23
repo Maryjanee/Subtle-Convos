@@ -6,7 +6,7 @@ class FeelingsController < ApplicationController
   end
 
   def create
-    @feeling = User.find(session[:user_id]).feelings.build(feeling_params) unless session[:user_id].nil?
+    @feeling = current_user.feelings.build(feeling_params) unless session[:author_id].nil?
 
     if @feeling.save
       flash[:notice] = 'Created Successfully'
@@ -22,6 +22,6 @@ class FeelingsController < ApplicationController
   private
 
   def feeling_params
-    params.require(:feeling).permit(:body)
+    params.require(:feeling).permit(:text)
   end
 end

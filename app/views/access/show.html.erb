@@ -35,10 +35,10 @@
         <h5>Conversations from from <%= @user.full_name%> </h5>
             <% @all_user_feelings.each do |content| %>
               <div class="user-posts d-flex mt-4">
-                  <%= cover_image(content.user, 'user-image mt-3')%>
+                  <%= cover_image(content.author, 'user-image mt-3', 'cover-2.jpg')%>
                 <div class="ml-3 mt-3">
-                  <h3><%=link_to content.user.full_name,  user_path(content.user.id), class: 'user-name' %></h3>
-                    <p class="ml-3"><%= content.body %></p>
+                  <h3><%=link_to content.author.full_name,  user_path(content.author.id), class: 'user-name' %></h3>
+                    <p class="ml-3"><%= content.text %></p>
                 </div>
               </div>
            <%end%>
@@ -56,7 +56,7 @@
              <%= user_avatar(@user,"single-user-img", "egg-avatar.jpg" )%>
            </div>
       <p class="mt-2 mb-0 dark_blue"><%=@user.full_name.upcase()%></p>
-      <p>@<%=@user.name%></p>
+      <p>@<%=@user.username%></p>
       </div>
 </div>
       <div class="d-flex user-stats">
@@ -72,7 +72,7 @@
                   <%=user_avatar(user, "user-image", "egg-avatar.jpg" )%>
                   <div class="user-details">
                   <p><%=link_to user.full_name,  user_path(user.id), class: 'dark_blue' %></p>
-                  <p>@<%=link_to user.name,  user_path(user.id), class: 'at-name' %></p>
+                  <p>@<%=link_to user.username,  user_path(user.id), class: 'at-name' %></p>
                   </div>
               </div>
               <%= button_display(user)%>

@@ -6,8 +6,8 @@ module ApplicationHelper
   end
   
   def user_avatar(user, classname , other_image)
-    if user.avatar.attached?
-      image_tag(user.avatar, class: classname ) 
+    if user.photo.attached?
+      image_tag(user.photo, class: classname ) 
         else 
           image_tag("egg-avatar.jpg", class: classname ) 
        end 
