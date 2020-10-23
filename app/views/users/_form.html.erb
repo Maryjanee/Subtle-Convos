@@ -1,7 +1,7 @@
 <%= form_with(model: @user, url: users_path, method: 'post', :class => "form-content") do |f| %>
   <%= f.label :username, "Username"  %>
   <%= f.text_field :username , :class => "user_name" %>
-  <%= f.label :name, "Full Name"  %>
+  <%= f.label :full_name, "Full Name"  %>
   <%= f.text_field(:full_name, placeholder: 'Full Name', :class => "user_name") %>
   <%= f.label 'Avatar' %>
   <%= f.file_field(:photo, :class => "user_name") %>
