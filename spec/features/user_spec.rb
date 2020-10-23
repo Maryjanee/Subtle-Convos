@@ -40,8 +40,8 @@ RSpec.feature 'Users', type: :feature do
     it 'creates a new user' do
       visit root_path
       find('.form-content') do
-      fill_in 'user[username]', with: 'John'
-      fill_in 'user[full_name]', with: 'John Doe'
+        fill_in 'user[username]', with: 'John'
+        fill_in 'user[full_name]', with: 'John Doe'
       end
       expect { click_button 'Sign Up' }.to change(User, :count).by(1)
     end
@@ -50,8 +50,8 @@ RSpec.feature 'Users', type: :feature do
     it 'All required parameters must be filled before account is created' do
       visit root_path
       find('.form-content') do
-      fill_in 'user[username]', with: 'John'
-      fill_in 'user[full_name]', with: ''
+        fill_in 'user[username]', with: 'John'
+        fill_in 'user[full_name]', with: ''
       end
       expect { click_button 'Sign Up' }.to change(User, :count).by(0)
     end

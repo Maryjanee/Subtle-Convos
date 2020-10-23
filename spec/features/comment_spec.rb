@@ -11,18 +11,17 @@ RSpec.describe 'Comments', type: :feature do
 
   it 'A signed in user can comment on a post ' do
     visit access_dashboard_path
-      page.all(:css, '#comments-form').last() do
+    page.all(:css, '#comments-form').last do
       fill_in 'Add new Comment', with: 'Awesome Post'
       expect { click_button 'Comment' }.to change(Comment, :count).by(1)
     end
   end
-  
+
   it 'A comment cannot be empty ' do
     visit access_dashboard_path
-      page.all(:css, '#comments-form').last() do
+    page.all(:css, '#comments-form').last do
       fill_in 'Add new Comment', with: ''
       expect { click_button 'Comment' }.to change(Comment, :count).by(0)
     end
   end
-
 end

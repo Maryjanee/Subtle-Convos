@@ -18,13 +18,12 @@ RSpec.describe 'A user can be able to post a feeling', type: :feature do
     expect(current_path).to eq(access_dashboard_path)
     expect(page).to have_content('Today is a beautiful day')
   end
-  
+
   it 'prevents user from posting and empty feeling ' do
     visit access_dashboard_path
     find('.feeling') do
       fill_in 'feeling[text]', with: ''
     end
     expect { click_button 'Post' }.to change(Feeling, :count).by(0)
-    
   end
 end
