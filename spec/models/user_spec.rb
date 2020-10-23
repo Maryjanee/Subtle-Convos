@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   subject do
-    described_class.new(name: 'Maryjane',
+    described_class.new(username: 'Maryjane',
                         full_name: 'Lorem ipsum')
   end
 
@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
   end
 
   it 'is not valid without a name' do
-    subject.name = nil
+    subject.username = nil
     expect(subject).to_not be_valid
   end
 

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   
   resources :relationships, only: [:create, :destroy]
   
-  resources :feelings, only:[:new, :create]
+  resources :feelings, only:[:create]
   
   resources :comments, only: [:create]
   

@@ -53,7 +53,8 @@
                     </div>
                 <% end %>
 
-            <%= form_for(:comment, url: comments_path(feeling_id: feeling.id, author_id: current_user.id)) do |form| %>
+            <%= form_for(:comment,:html => { id: "comments-form" }, url: comments_path(feeling_id: feeling.id, author_id: current_user.id)) do |form| %>
+            <%= form.label :comment, class:"post-comment-form d-none "%>
                   <%= form.text_field :body, placeholder: 'Add new Comment', class:'comment-text' %>
                   <%= form.submit 'Comment', class: 'comment-btn' %>
             <% end %>
